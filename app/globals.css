@@ -13,35 +13,142 @@ body {
 }
 
 .slick-dots {
-  bottom: -40px !important;
+  bottom: -35px !important;
+  display: flex !important;
+  justify-content: center;
+  gap: 1px;
 }
 
 .slick-dots li {
-  width: 12px !important;
-  height: 12px !important;
-  margin: 0 8px !important;
+  width: 12px !important; /* Larger size for the background circle */
+  height: 12px !important; /* Larger size for the background circle */
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: #052f5f14; /* Grayish background for the dot */
+  border-radius: 50%;
 }
 
 .slick-dots li button {
   padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
 }
 
 .slick-dots li .custom-dot {
   width: 12px;
   height: 12px;
-  background-color: #e2e8f0;
+  min-width: 12px;
+  min-height: 12px;
+  background-color: #1b1dc7; /* Inactive state */
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
 
 .slick-dots li.slick-active .custom-dot {
-  background-color: #3b82f6;
+  background-color: #1b1dc7; /* Active state */
+  width: 6px; /* Smaller active dot */
+  height: 6px; /* Smaller active dot */
+  min-width: 6px;
+  min-height: 6px;
 }
 
-.slick-slide {
-  padding: 0 15px;
+.slick-dots li.slick-active {
+  background-color: #d6daf0; /* Maintain gray background when active */
+}
+
+.slick-slide > div:first-child {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .slick-list {
   margin: 0 -15px;
+  height: 100%;
 }
+
+.slick-track {
+  height: 100%;
+}
+
+.sprite:after {
+  content: "";
+  background: url("/assets/partners-sprite-lite.png") no-repeat;
+  background-size: cover; /* Ensure proper scaling */
+  position: absolute;
+  height: 32px; /* Adjust height as needed */
+  width: 90px; /* Adjust width as needed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Individual sprite positions */
+.sprite-aditya-birla:after {
+  background-position: 0 2px;
+}
+.sprite-american-express:after {
+  background-position: 0 -35px;
+}
+.sprite-axis-bank:after {
+  background-position: 0 -68px;
+}
+
+.sprite-bank-of-baroda:after {
+  background-position: 0 -140px;
+}
+
+.sprite-cashe:after {
+  background-position: 0 -180px;
+}
+
+.sprite-kotak:after {
+  background-position: 0 -214px;
+}
+
+.sprite-credit-saison:after {
+  background-position: 0 -250px;
+}
+
+.sprite-dmi-finance:after {
+  background-position: 0 -1977px;
+}
+
+.sprite-early-salary:after {
+  background-position: 0 -320px;
+}
+
+.sprite-equifax:after {
+  background-position: 0 -357px;
+}
+
+.sprite-experian:after {
+  background-position: 0 -394px;
+}
+
+.sprite-federal-bank:after {
+  background-position: 0 -430px;
+}
+
+.sprite-flexi-loans:after {
+  background-position: 0 -464px;
+}
+
+.sprite-smfg:after {
+  background-position: 0 -498px;
+}
+
+.sprite-hdb-financial:after {
+  background-position: 0 -537px;
+}
+
+.sprite-hdfc-bank:after {
+  background-position: 0 -1618px;
+}
+
+.sprite-chola:after {
+  background-position: 0 -1618px;
+}
+/* Add other partners' background positions here */

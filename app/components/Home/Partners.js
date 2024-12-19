@@ -13,109 +13,89 @@ const categories = [
 const partners = [
   {
     name: "Aditya Birla Capital",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["unsecured-loans", "credit-card"],
+    className: "sprite-aditya-birla",
   },
   {
     name: "American Express",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-card"],
+    className: "sprite-american-express",
   },
   {
     name: "Axis Bank",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["unsecured-loans", "credit-card", "home-loan"],
+    className: "sprite-axis-bank",
   },
   {
     name: "Bank of Baroda",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["home-loan", "unsecured-loans"],
+    className: "sprite-bank-of-baroda",
   },
   {
     name: "CashE",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-improvement"],
+    className: "sprite-cashe",
   },
-  {
-    name: "Chola",
-    logo: "/placeholder.svg?height=60&width=150",
-    categories: ["unsecured-loans"],
-  },
-  {
-    name: "CIBIL",
-    logo: "/placeholder.svg?height=60&width=150",
-    categories: ["credit-bureau"],
-  },
+  { name: "Chola", categories: ["unsecured-loans"], className: "sprite-chola" },
+  { name: "CIBIL", categories: ["credit-bureau"], className: "sprite-cibil" },
   {
     name: "Kotak",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-card", "home-loan"],
+    className: "sprite-kotak",
   },
-  {
-    name: "CLIX",
-    logo: "/placeholder.svg?height=60&width=150",
-    categories: ["unsecured-loans"],
-  },
+  { name: "CLIX", categories: ["unsecured-loans"], className: "sprite-clix" },
   {
     name: "Credit Saison",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-card"],
+    className: "sprite-credit-saison",
   },
-  {
-    name: "CRIF",
-    logo: "/placeholder.svg?height=60&width=150",
-    categories: ["credit-bureau"],
-  },
+  { name: "CRIF", categories: ["credit-bureau"], className: "sprite-crif" },
   {
     name: "DMI Finance",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["unsecured-loans"],
+    className: "sprite-dmi-finance",
   },
   {
     name: "Early Salary",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-improvement"],
+    className: "sprite-early-salary",
   },
   {
     name: "Equifax",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-bureau"],
+    className: "sprite-equifax",
   },
   {
     name: "Experian",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-bureau"],
+    className: "sprite-experian",
   },
   {
     name: "Federal Bank",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["home-loan"],
+    className: "sprite-federal-bank",
   },
   {
     name: "Flexi Loans",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["unsecured-loans"],
+    className: "sprite-flexi-loans",
   },
   {
     name: "SMFG",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-improvement"],
+    className: "sprite-smfg",
   },
   {
     name: "HDB Financial",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["unsecured-loans"],
+    className: "sprite-hdb-financial",
   },
   {
     name: "HDFC Bank",
-    logo: "/placeholder.svg?height=60&width=150",
     categories: ["credit-card", "home-loan"],
+    className: "sprite-hdfc-bank",
   },
-  {
-    name: "HDFC",
-    logo: "/placeholder.svg?height=60&width=150",
-    categories: ["home-loan"],
-  },
+  { name: "HDFC", categories: ["home-loan"], className: "sprite-hdfc" },
 ];
 
 export default function Partners() {
@@ -127,25 +107,25 @@ export default function Partners() {
   );
 
   return (
-    <div className="bg-[#F8F9FF] py-16">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <h2 className="text-4xl font-bold text-blue-700 mb-2">
+    <div className="bg-[#f3f9ff] pt-[50px] pb-[60px] px-4">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="min-w-[40px] min-h-[2px] w-[40px] h-[2px] bg-[#1b1dc7] mb-[16px]" />
+        <h2 className="text-[#1b1dc7] text-[24px] font-bold text-blue-700 mb-[16px]">
           Our partners from
-        </h2>
-        <h2 className="text-4xl font-bold text-blue-700 mb-12">
+          <br />
           across the industry
         </h2>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-4 mb-12">
+        <div className="flex flex-wrap gap-[16px] mb-[24px] mt-[32px]">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-[16px] py-[6px] rounded-[6px] font-[600] text-[14px] transition-all duration-200 border ${
                 activeCategory === category.id
-                  ? "bg-blue-700 text-white"
-                  : "bg-white text-blue-700 border border-blue-700 hover:bg-blue-50"
+                  ? "bg-[#1b1dc7] text-white border-transparent"
+                  : "bg-white text-[#1b1dc7] border-[#1b1dc7] hover:bg-blue-50"
               }`}
             >
               {category.label}
@@ -154,16 +134,21 @@ export default function Partners() {
         </div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6">
+        <div className="flex flex-wrap gap-[30px]">
           {filteredPartners.map((partner) => (
             <div
               key={partner.name}
-              className="bg-white rounded-lg shadow-sm p-6 flex items-center justify-center transition-all duration-300 hover:shadow-md"
+              className="relative flex min-h-[64px] min-w-[137px] h-[64px] w-[137px] bg-white rounded-[8px] flex items-center justify-center transition-all duration-300 hover:shadow-md"
+              style={{
+                boxShadow: "0 2px 10px 0 rgb(52 105 203 / 12%)",
+              }}
             >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-12 w-auto object-contain"
+              <div
+                className={`sprite ${partner.className} w-full h-full`}
+                style={{
+                  backgroundSize: "cover",
+                  boxShadow: "0 2px 10px 0 rgb(52 105 203 / 12%)",
+                }}
               />
             </div>
           ))}

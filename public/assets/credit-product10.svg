@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+                                <g fill="none" fill-rule="evenodd">
+                                <path fill="#F5D9BA" fill-rule="nonzero" d="M15.686 36.306l4.518-4.672s1.92-2.458 4.86-2.458h9.567s1.277 3.16-1.957 4.585c0 0 4.614.08 8.466-2.124 0 0 4.53-3.025 7.577.04l-8.34 6.248s-2.63 1.864-7.375 2.265c-.42.035-.84.069-1.259.121l-6.492.798c-1.94.238-3.894.358-5.849.358h-3.716"></path>
+                                <path fill="#ED6262" fill-rule="nonzero" d="M11 34.365h2.922c.975 0 1.764.816 1.764 1.822v5.09c0 1.007-.79 1.822-1.764 1.822H11"></path>
+                                <path stroke="#1B325E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M11 34.365h2.922c.975 0 1.764.816 1.764 1.822v5.09c0 1.007-.79 1.822-1.764 1.822H11"></path>
+                                <path stroke="#1B325E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M15.686 36.306l4.518-4.672s1.92-2.458 4.86-2.458h9.567s1.277 3.16-1.957 4.585c0 0 4.614.08 8.466-2.124 0 0 4.53-3.025 7.577.04l-8.34 6.248s-2.63 1.864-7.375 2.265c-.42.035-.84.069-1.259.121l-6.492.798c-1.94.238-3.894.358-5.849.358h-3.716M25.652 33.707l7.023.053"></path>
+                                <path fill="#FFD032" fill-rule="nonzero" d="M39.058 18.271h-7.426l-1.508 5.822h10.585zM27.499 18.271h-7.426l-1.509 5.822H29.15z"></path>
+                                <path fill="#FFD032" fill-rule="nonzero" d="M33.227 12.482H25.8l-1.508 5.822h10.586z"></path>
+                                <path stroke="#1B325E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M39.058 18.271h-7.426l-1.508 5.822h10.585zM27.499 18.271h-7.426l-1.509 5.822H29.15z"></path>
+                                <path stroke="#1B325E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M33.227 12.482H25.8l-1.508 5.822h10.586zM29.984 6v2.258M34.246 7.048l-1.061 1.997M37.149 9.446l-1.785 1.4M25.714 7.052l1.064 1.996M22.583 9.755l1.844 1.322"></path>
+                                </g>
+                            </svg>

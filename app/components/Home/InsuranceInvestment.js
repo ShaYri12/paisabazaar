@@ -6,85 +6,59 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 
 const products = [
   {
-    title: "CREDIT CARDS",
-    description:
-      "From 50+ Options, Choose a card matching your lifestyle & needs",
+    badge: "Up to 10% Off",
+    title: "Term Life Insurance",
+    description: "Safeguard your loved ones from future uncertainties",
     icon: "/assets/credit-product1.png",
-    action: "Get Best Offers",
+    action: "Starting from ₹ 473/month*",
   },
   {
-    title: "PERSONAL LOAN",
+    badge: "Tax Free Returns",
+    title: "Investment Plan",
     description:
-      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+      "Plans starting from ₹1,000 with Inbuilt Life Cover & Tax Benefits",
     icon: "/assets/credit-product2.png",
-    action: "Check Eligibility",
+    action: "View Plans",
   },
   {
-    title: "MICRO LOANS",
-    subtitle: "(UNDER ₹50K)",
-    description: "Instant small ticket loans to meet your immediate cash needs",
+    badge: "Pre-Approved",
+    title: "Health Insurance",
+    description:
+      "Protect yourself and your family against medical expenses with up to 25% discount",
     icon: "/assets/credit-product3.png",
-    action: "Get Instant Loan",
+    action: "Starting @ ₹ 8/day*",
   },
   {
-    title: "BUSINESS LOAN",
-    description: "Expand your business with loans at low interest rates",
+    title: "Direct Mutual Funds",
+    description: "Get higher returns on your Mutual Fund investments",
     icon: "/assets/credit-product4.png",
-    action: "Check Eligibility",
+    action: "Check Your Investment",
   },
   {
-    title: "TRANSFER PERSONAL LOAN",
-    description: "Get better interest rates on your existing personal loan",
+    badge: "New",
+    title: "POCKET PROTECT",
+    description:
+      "Safeguard yourself against potential financial loss and frauds",
     icon: "/assets/credit-product5.png",
-    action: "Reduce Your EMI",
+    action: "Know More",
   },
   {
-    title: "HOME LOAN",
+    badge: "New",
+    title: "Car Insurance",
     description:
-      "Choose from lowest interest rates available for your dream home",
+      "Protect yourself & your Car from financial emergencies and save up to 85%*",
     icon: "/assets/credit-product6.png",
-    action: "Check Eligibility",
-  },
-  {
-    title: "LOAN AGAINST PROPERTY",
-    description: "Get liquidity against your property at best interest rates",
-    icon: "/assets/credit-product7.png",
-    action: "Check Eligibility",
-  },
-  {
-    title: "TRANSFER HOME LOAN",
-    description: "Get better interest rates on your existing home loan",
-    icon: "/assets/credit-product8.png",
-    action: "Reduce Your EMI",
-  },
-  {
-    title: "STEP UP CREDIT CARD",
-    description: "A Credit Card for everyone, backed by a Fixed Deposit",
-    icon: "/assets/credit-product9.svg",
-    action: "Know More",
-  },
-  {
-    title: "GOLD LOAN",
-    description:
-      "Get loan against your gold at best interest rates with our doorstep service",
-    icon: "/assets/credit-product10.svg",
-    action: "Know More",
-  },
-  {
-    title: "LOAN AGAINST MUTUAL FUNDS",
-    description: "Get best loan offer against your mutual fund portfolio",
-    icon: "/assets/credit-product11.svg",
-    action: "Apply Now",
+    action: "View Prices",
   },
 ];
 
-export default function CreditProducts() {
+export default function InsuranceInvestment() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 py-8">
       <h1 className="flex items-center gap-2 text-[#1b1dc7] text-[14px] font-bold mb-[16px]">
-        CREDIT PRODUCTS{" "}
+        Insurance & Investment{" "}
         <span className="w-[120px] h-[1px] bg-[#1b1dc7] rounded-[4px]"></span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 lg:gap-x-[30px] gap-y-[32px]">
@@ -92,7 +66,7 @@ export default function CreditProducts() {
           <Link
             key={index}
             href="#"
-            className={`bg-white rounded-[8px] border border-[#EBEFF7CC] px-[14px] py-[16px] transition-all duration-300 ${
+            className={`bg-white rounded-[8px] border border-[#EBEFF7CC] px-[14px] py-[16px] transition-all duration-300 relative ${
               hoveredIndex !== null && hoveredIndex !== index
                 ? "filter grayscale"
                 : "shadow-lg"
@@ -103,11 +77,14 @@ export default function CreditProducts() {
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between gap-1 h-full">
                 <div className="flex flex-col justify-between min-h-full h-full">
+                  {product.badge && (
+                    <span className="absolute left-[12px] top-[-9px] px-[10px] py-[2px] text-white text-[10px] bg-[#19b24d] rounded-[4px] font-[600]">
+                      {product.badge}
+                    </span>
+                  )}
                   <div className="h-full">
                     <h2 className="text-[#052f5f] font-bold text-[14px] mb-[8px] uppercase">
                       {product.title}
-                      <br />
-                      {product.subtitle && <span>{product.subtitle}</span>}
                     </h2>
                     <p className="text-[#69829f] text-[12px] flex-grow mb-[12px] font-[600]">
                       {product.description}
@@ -115,7 +92,7 @@ export default function CreditProducts() {
                   </div>
                   <a
                     href="#"
-                    className="flex items-center gap-1 text-[#1b1dc7] mb-auto text-[12px] font-[600] hover:text-blue-800 inline-block"
+                    className="flex items-center gap-1 text-[#1b1dc7] mb-auto text-[11px] font-[600] hover:text-blue-800 inline-block"
                   >
                     {product.action} <IoArrowForwardOutline size={13} />
                   </a>

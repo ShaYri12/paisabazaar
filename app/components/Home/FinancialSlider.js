@@ -5,6 +5,7 @@ import { BsCalculator, BsCreditCard2Front } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
 
 const slides = [
   {
@@ -83,6 +84,7 @@ const PrevArrow = ({ onClick }) => (
 );
 
 export default function FinancialSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
@@ -107,7 +109,14 @@ export default function FinancialSlider() {
         </ul>
       </div>
     ),
-    customPaging: (i) => <div className="custom-dot" />,
+    beforeChange: (current, next) => setCurrentSlide(next),
+    customPaging: (i) => (
+      <div
+        className={`w-[6px] h-[6px] rounded-full ${
+          i === currentSlide ? "bg-[#0066FF]" : "bg-gray-300"
+        }`}
+      />
+    ),
   };
 
   return (
