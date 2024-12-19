@@ -69,49 +69,56 @@ export default function Navbar() {
       {/* Desktop Navbar */}
       <div className="w-full relative z-10 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <button className="md:hidden -ml-2 p-2 z-50" onClick={toggleMenu}>
-                <CiMenuFries className="h-6 w-6 transition-transform duration-300 text-black" />
-              </button>
-              <Link href="/" className="flex-shrink-0 flex items-center">
-                <span className="text-2xl font-bold text-[#0066FF]">paisa</span>
-                <span className="text-2xl font-bold text-black">bazaar</span>
-                <span className="text-[#0066FF] text-2xl">.com</span>
-              </Link>
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-[54px]">
+              <div className="flex items-center">
+                <button
+                  className="md:hidden -ml-2 p-2 z-50"
+                  onClick={toggleMenu}
+                >
+                  <CiMenuFries className="h-6 w-6 transition-transform duration-300 text-black" />
+                </button>
+                <Link href="/" className="flex-shrink-0 flex items-center">
+                  <Image
+                    src="/assets/paisabazaar-logo.svg"
+                    alt="paisa bazaar logo"
+                    width={154}
+                    height={31.26}
+                  />
+                </Link>
+              </div>
+
+              <div className="hidden md:flex md:items-center md:space-x-[10px]">
+                <button
+                  onClick={() => toggleDropdown("allProducts")}
+                  className="text-gray-700 hover:text-[#0066FF] px-3 py-2 text-sm font-medium flex items-center"
+                >
+                  All Products
+                  <MdOutlineKeyboardArrowDown className="ml-1 h-4 w-4" />
+                </button>
+
+                <button
+                  onClick={() => toggleDropdown("learnResources")}
+                  className="text-gray-700 hover:text-[#0066FF] px-3 py-2 text-sm font-medium flex items-center"
+                >
+                  Learn & Resources
+                  <MdOutlineKeyboardArrowDown className="ml-1 h-4 w-4" />
+                </button>
+
+                <Link
+                  href="/contact"
+                  className="text-gray-700 hover:text-[#0066FF] px-3 py-2 text-sm font-medium"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
-
-            <div className="hidden md:flex md:items-center md:space-x-8">
-              <button
-                onClick={() => toggleDropdown("allProducts")}
-                className="text-gray-700 hover:text-[#0066FF] px-3 py-2 text-sm font-medium flex items-center"
-              >
-                All Products
-                <MdOutlineKeyboardArrowDown className="ml-1 h-4 w-4" />
-              </button>
-
-              <button
-                onClick={() => toggleDropdown("learnResources")}
-                className="text-gray-700 hover:text-[#0066FF] px-3 py-2 text-sm font-medium flex items-center"
-              >
-                Learn & Resources
-                <MdOutlineKeyboardArrowDown className="ml-1 h-4 w-4" />
-              </button>
-
-              <Link
-                href="/contact"
-                className="text-gray-700 hover:text-[#0066FF] px-3 py-2 text-sm font-medium"
-              >
-                Contact Us
-              </Link>
-
-              <Link
-                href="/signin"
-                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-[#0066FF] bg-[#EEF4FF] hover:bg-blue-50"
-              >
-                Sign In
-              </Link>
-            </div>
+            <Link
+              href="/signin"
+              className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-[#0066FF] bg-[#EEF4FF] hover:bg-blue-50"
+            >
+              Sign In
+            </Link>
 
             <div className="flex md:hidden items-center">
               <Link
