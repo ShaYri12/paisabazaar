@@ -27,9 +27,20 @@ const allProductsMenu = {
 
 const learnResourcesMenu = {
   "FINANCIAL KNOWLEDGE": [
-    { name: "Articles", href: "/articles" },
-    { name: "Guides", href: "/guides" },
-    { name: "Calculator", href: "/calculator" },
+    { name: "Adhaar Card", href: "/articles" },
+    { name: "PAN Card", href: "/guides" },
+    { name: "PPF (Public Provident Fund)", href: "/calculator" },
+    { name: "EPF (Employee Provident Fund", href: "/guides" },
+    { name: "Income Tax", href: "/calculator" },
+  ],
+  "OTHER PRODUCTS": [
+    { name: "Credit Score", href: "/credit-score", badge: "FREE" },
+    { name: "Credit Card", href: "/credit-card" },
+    { name: "Step-Up Card", href: "/step-up-card" },
+  ],
+  "LOAN TRANSFER": [
+    { name: "Personal Loan Balance Transfer", href: "/personal-loan-transfer" },
+    { name: "Home Loan Balance Transfer", href: "/home-loan-transfer" },
   ],
 };
 
