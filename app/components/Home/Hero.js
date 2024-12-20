@@ -9,10 +9,10 @@ import { IoIosArrowForward } from "react-icons/io";
 const sliderData = [
   {
     title: (
-      <h1 className="text-[28px] font-[700] text-[#3a3ee5] leading-[44px] mb-[15px]">
-        Your Credit Score & Report{" "}
-        <span className="line-through">worth ₹1,200</span>{" "}
-        <span className="text-[#d90368]">Absolutely FREE</span>
+      <h1 className="text-[28px] font-[700] text-[#60bb51] leading-[44px] mb-[15px]">
+        Your Credit Score & Report <br />
+        <span className="line-through">worth ₹1,200</span> 
+        <span className="text-[#60bb51]">Absolutely FREE</span>
       </h1>
     ),
     description: (
@@ -22,30 +22,26 @@ const sliderData = [
       </p>
     ),
     cta: "Get Free Credit Report",
-    image: "/assets/hp-banner-img.svg",
+    image: "/assets/slider1.png",
   },
   {
     title: (
-      <h1 className="text-[28px] font-[700] text-[#3a3ee5] leading-[44px] mb-[8px]">
-        Looking for the{" "}
-        <span className="text-[#d90368]">Best Credit Card?</span>
+      <h1 className="text-[28px] font-[700] text-[#60bb51] leading-[44px] mb-[15px]">
+        Proccessing fee @0 <br />
+        <span className="line-through"> processing fee</span>
+        <span className="text-[#60bb51]"> Absolutely FREE</span>
       </h1>
     ),
     description: (
-      <div className="flex items-center gap-8 mb-[24px]">
-        <p className="flex flex-wrap items-center text-[#052F5FCC] text-base font-[600]">
-          <span className="w-[24px] h-[1px] bg-[#d90368] mr-[8px]"></span>
-          Search Cards by Card Name/Categories
-        </p>
-        <p className="flex items-center text-[#052F5FCC] text-base font-[600]">
-          <span className="w-[24px] h-[1px] bg-[#d90368] mr-[8px]"></span>
-          Choose from 400+ Credit Cards
-        </p>
-      </div>
+      <p className="mb-[25px] text-base text-[#052f5] opacity-[0.6]">
+        Your credit score is more than just a number. It's the key to help you
+        unlock the doors to the best loans & credit card offers available.
+      </p>
     ),
-    cta: "Search Credit Cards",
-    image: "/assets/search-banner.png",
+    cta: "Get Free Credit Report",
+    image: "/assets/slider1.png",
   },
+
 ];
 
 export default function Hero() {
@@ -62,9 +58,8 @@ export default function Hero() {
     beforeChange: (current, next) => setCurrentSlide(next),
     customPaging: (i) => (
       <div
-        className={`w-[6px] h-[6px] rounded-full ${
-          i === currentSlide ? "bg-[#0066FF]" : "bg-gray-300"
-        }`}
+        className={`w-[6px] h-[6px] rounded-full ${i === currentSlide ? "bg-[#60bb51]" : "bg-gray-300"
+          }`}
       />
     ),
   };
@@ -86,11 +81,11 @@ export default function Hero() {
             <div className="lg:grid lg:grid-cols-12 lg:gap-[50px] h-full w-full">
               <div className="lg:col-span-5 flex items-center justify-center">
                 <div className="relative h-[320px] w-full">
-                  <Image
+                  <img
                     src={slide.image}
                     alt="Credit Score Illustration"
-                    layout="fill"
-                    objectFit="contain"
+                    // layout="fill"
+                    // objectFit="contain"
                     priority
                   />
                 </div>
@@ -102,7 +97,7 @@ export default function Hero() {
                   <div className="">
                     <a
                       href="#"
-                      className="inline-flex items-center justify-center gap-2 ps-[32px] pe-[28px] py-[18px] text-base font-[600] rounded-[8px] text-white bg-[#1b1dc7] hover:bg-blue-700"
+                      className="inline-flex items-center justify-center gap-2 ps-[32px] pe-[28px] py-[18px] text-base font-[600] rounded-[8px] text-white bg-[#60bb51] "
                     >
                       {slide.cta}
                       <IoIosArrowForward className="text-white" />
