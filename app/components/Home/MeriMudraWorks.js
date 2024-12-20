@@ -3,7 +3,7 @@ import React from 'react'
 const MeriMudraWorks = () => {
     return (
         <div className='max-w-[1200px] mx-auto w-full px-5'>
-            <h2 className='mt-20 mb-14 text-center text-[20px] sm:text-[35px] text-[#232323] font-semibold '>How does meri mudra works ?</h2>
+            <h2 className='mt-10 mb-14 text-center text-[20px] sm:text-[35px] text-[#232323] font-semibold '>How does meri mudra works ?</h2>
             <div className='mb-7 sm:mb-10 md:mb-[90px] flex items-start sm:flex-row flex-col gap-4'>
                 <div className='w-full sm:w-1/2'>
                     <img src='/Complete-the-form.png' alt='image' className='m-auto h-[200px] sm:h-[250px] lg:h-[320px]' />

@@ -7,6 +7,7 @@ import Partners from "./components/Home/Partners";
 import TailorMadeProducts from "./components/Home/TailorMadeProducts";
 import InsuranceInvestment from "./components/Home/InsuranceInvestment";
 import MeriMudraWorks from "./components/Home/MeriMudraWorks";
+import MyProduct from "./components/Home/MyProduct";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       {/* <InsuranceInvestment /> */}
       {/* <FinancialSlider /> */}
       {/* <TailorMadeProducts /> */}
+      <MyProduct/>
       <MeriMudraWorks/>
       <Partners />
       <Footer />
