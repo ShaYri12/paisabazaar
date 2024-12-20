@@ -83,22 +83,22 @@ const products = [
 const MyProduct = () => {
   return (
     <div className="max-w-[1200px] mx-auto w-full px-[15px] mt-[50px] mb-[20px]">
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-2">
         <h2 className="text-[#60bb51] text-[14px] font-bold">My Products</h2>
-        <div className="w-[128px] h-[1.5px] bg-[#60bb51]"></div>
+        <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-[#60bb51]"></div>
       </div>
-      <div className="grid grid-cols-4 gap-6 mt-6">
+      <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-[8px] mt-6">
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative scale-100 hover:scale-110 overflow-hidden p-[14px] shadow-custom-green rounded-[8px] border border-green-border transition-all duration-300 hover:shadow-hover-blue"
+            className="relative scale-100 hover:scale-110 overflow-hidden p-[14px] lg:shadow-custom-green rounded-[8px] lg:border lg:border-green-border transition-all duration-300 hover:shadow-hover-blue"
           >
-            <div className="flex items-start justify-between">
-              <div>
-                <h2 className="text-sm font-semibold mb-2 uppercase text-black">
+            <div className="flex lg:flex-row flex-col-reverse lg:items-start items-center lg:justify-between justify-center lg:gap-1 gap-2">
+              <div className="flex flex-col lg:justify-start justify-center lg:items-start items-center">
+                <h2 className="text-[10px] lg:text-sm lg:font-[600] font-[400] mb-2 uppercase text-black lg:text-left- text-center">
                   {product.title}
                 </h2>
-                <p className="text-[#69829f] text-[12px] mb-[15px] w-[80%]">
+                <p className="lg:block hidden text-[#69829f] text-[12px] mb-[15px] w-[80%]">
                   {product.description}
                 </p>
               </div>
@@ -111,7 +111,7 @@ const MyProduct = () => {
                 />
               </div>
             </div>
-            <button className="text-[#60bb51] text-[12px] font-semibold flex items-center gap-1">
+            <button className="lg:block hidden text-[#60bb51] text-[12px] font-semibold flex items-center gap-1">
               {product.buttonText} <MdKeyboardDoubleArrowRight />
             </button>
           </div>

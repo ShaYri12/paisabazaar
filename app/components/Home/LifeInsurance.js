@@ -28,9 +28,9 @@ export default function LifeInsurance() {
         <h2 className="text-[#60bb51] text-[14px] font-bold uppercase">
           Life Insurance{" "}
         </h2>
-        <div className="w-[128px] h-[1.5px] bg-[#60bb51]"></div>
+        <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-[#60bb51]"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+      <div className="grid grid-cols-3 lg:gap-[30px] gap-[8px]">
         {carLoans.map((loan, loanIndex) => (
           <Card key={loanIndex} title={loan.title} icon={loan.icon} />
         ))}
