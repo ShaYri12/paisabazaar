@@ -12,8 +12,8 @@ export default {
        'green-border': 'rgba(96, 187, 81, 0.2)',
       },
       boxShadow: {
-        'custom-green': '0 4px 12px rgba(96, 187, 81, 0.5)',  
-        'hover-blue': '0 4px 12px rgba(0, 112, 243, 0.2)',
+        'custom-green': '0px 8px 10px rgba(96, 187, 81, 0.3)',  
+        'hover-blue': '0px 8px 10px rgba(0, 112, 243, 0.1)',
       },
     },
   },
