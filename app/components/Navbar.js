@@ -38,7 +38,10 @@ const allProductsMenu = {
   ],
   "Life Insurance": [
     { name: "Retirement & Pension Plans", href: "/retirement-plans" },
-    { name: "Guaranteed Income & Saving Plans", href: "/guaranteed-income-plans" },
+    {
+      name: "Guaranteed Income & Saving Plans",
+      href: "/guaranteed-income-plans",
+    },
     { name: "Investment Plans (Endowment Plans)", href: "/investment-plans" },
     { name: "ULIP (Unit-Linked Insurance Plans)", href: "/ulip" },
     { name: "Child Education/Marriage Plans", href: "/child-plans" },
@@ -87,30 +90,21 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 bg-white z-50 transition-shadow duration-300 ${scrolled ? "shadow-md" : ""
-        }`}
+      className={`fixed top-0 left-0 right-0 bg-white z-50 transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : ""
+      }`}
     >
       {/* Desktop Navbar */}
-      <div className="w-full relative z-10 bg-white">
+      <div className="w-full relative z-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-[25px]">
-              <div className="flex items-center">
-                <button
-                  className="md:hidden -ml-2 p-2 z-50"
-                  onClick={toggleMenu}
-                >
-                  <CiMenuFries className="h-6 w-6 transition-transform duration-300 text-black" />
-                </button>
-                <Link href="/" className="flex-shrink-0 flex items-center">
-                  <Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={85}
-                    height={32}
-                  />
-                </Link>
-              </div>
+              <Link
+                href="/"
+                className="flex-shrink-0 flex md:w-[85px] w-[70px] items-center"
+              >
+                <Image src="/logo.png" alt="logo" width={85} height={32} />
+              </Link>
 
               <div className="hidden md:flex md:items-center">
                 <button
@@ -122,13 +116,18 @@ export default function Navbar() {
                 </button>
               </div>
             </div>
-
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="flex items-center gap-2">
               <input
                 type="text"
                 placeholder="Search"
-                className="w-[270px] h-10 border border-[#ccc] px-5 rounded-[40px] outline-none text-sm"
+                className="md:w-[270px] w-[180px] md:h-10 h-[32px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm"
               />
+              <button className="md:hidden z-50" onClick={toggleMenu}>
+                <CiMenuFries
+                  strokeWidth={0.6}
+                  className="md:h-6 h-5 md:w-6 w-5 text-black transition-transform duration-300 text-black"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -137,15 +136,14 @@ export default function Navbar() {
       {/* Desktop Mega Menu */}
       {activeDropdown === "allProducts" && (
         <div
-        className={`hidden md:block absolute left-1/2 transform -translate-x-1/2 w-full max-w-[1230px] bg-white shadow-lg border z-50 transition-all duration-300 ease-in-out ${
-          activeDropdown === "allProducts"
-            ? "opacity-100 translate-y-0 top-[62px]"
-            : "opacity-0 -translate-y-4 pointer-events-none top-[58px]"
-        }`}
-        onMouseEnter={() => setActiveDropdown("allProducts")}
+          className={`hidden md:block absolute left-1/2 transform -translate-x-1/2 w-full max-w-[1230px] bg-white shadow-lg border z-50 transition-all duration-300 ease-in-out ${
+            activeDropdown === "allProducts"
+              ? "opacity-100 translate-y-0 top-[62px]"
+              : "opacity-0 -translate-y-4 pointer-events-none top-[58px]"
+          }`}
+          onMouseEnter={() => setActiveDropdown("allProducts")}
           onMouseLeave={() => setActiveDropdown(null)}
         >
-
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-4 pt-8">
             <div className="grid grid-cols-4 gap-5">
               {Object.entries(allProductsMenu).map(([category, items]) => (
@@ -174,8 +172,9 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={`fixed inset-0 bg-white z-10 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="h-16 border-b" /> {/* Spacer for navbar */}
         <div className="overflow-y-auto h-[calc(100vh-64px)] pb-20">
@@ -195,8 +194,9 @@ export default function Navbar() {
                       {category}
                     </span>
                     <MdOutlineKeyboardArrowDown
-                      className={`h-5 w-5 transform transition-transform ${mobileDropdown === category ? "rotate-180" : ""
-                        }`}
+                      className={`h-5 w-5 transform transition-transform ${
+                        mobileDropdown === category ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
                   {mobileDropdown === category && (
@@ -216,50 +216,9 @@ export default function Navbar() {
                 </div>
               ))}
             </div>
-
-            <div className="mt-6 space-y-4">
-              <div className="flex flex-col space-y-2">
-                <h3 className="text-sm font-medium text-gray-900">
-                  Need assistance?
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Call us toll-free at{" "}
-                  <span className="text-[#0066FF] font-medium">
-                    1800 - 208 - 8877
-                  </span>
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-gray-200">
-                <h3 className="text-sm font-medium text-gray-900 mb-3">
-                  Download our app
-                </h3>
-                <div className="flex space-x-4">
-                  <Link href="https://play.google.com/store" className="flex-1">
-                    <Image
-                      src="/placeholder.svg?height=40&width=135"
-                      alt="Get it on Google Play"
-                      width={135}
-                      height={40}
-                      className="w-full"
-                    />
-                  </Link>
-                  <Link href="https://apps.apple.com" className="flex-1">
-                    <Image
-                      src="/placeholder.svg?height=40&width=135"
-                      alt="Download on the App Store"
-                      width={135}
-                      height={40}
-                      className="w-full"
-                    />
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </nav>
   );
 }
-
