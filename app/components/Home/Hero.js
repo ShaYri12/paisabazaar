@@ -11,7 +11,7 @@ const sliderData = [
     title: (
       <h1 className="text-[28px] font-[700] text-[#60bb51] leading-[44px] mb-[15px]">
         Your Credit Score & Report <br />
-        <span className="line-through">worth ₹1,200</span> 
+        <span className="line-through">worth ₹1,200</span>{" "}
         <span className="text-[#60bb51]">Absolutely FREE</span>
       </h1>
     ),
@@ -41,7 +41,6 @@ const sliderData = [
     cta: "Get Free Credit Report",
     image: "/assets/slider1.png",
   },
-
 ];
 
 export default function Hero() {
@@ -58,8 +57,9 @@ export default function Hero() {
     beforeChange: (current, next) => setCurrentSlide(next),
     customPaging: (i) => (
       <div
-        className={`w-[6px] h-[6px] rounded-full ${i === currentSlide ? "bg-[#60bb51]" : "bg-gray-300"
-          }`}
+        className={`w-[6px] h-[6px] rounded-full ${
+          i === currentSlide ? "bg-[#60bb51]" : "bg-gray-300"
+        }`}
       />
     ),
   };

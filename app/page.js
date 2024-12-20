@@ -8,6 +8,12 @@ import TailorMadeProducts from "./components/Home/TailorMadeProducts";
 import InsuranceInvestment from "./components/Home/InsuranceInvestment";
 import MeriMudraWorks from "./components/Home/MeriMudraWorks";
 import MyProduct from "./components/Home/MyProduct";
+import LoanCategories from "./components/Home/LoanCategories";
+import CarLoans from "./components/Home/CarLoans";
+import CreditCards from "./components/Home/CreditCards";
+import LifeInsurance from "./components/Home/LifeInsurance";
+import HealthInsurance from "./components/Home/HealthInsurance";
+import GeneralInsurance from "./components/Home/GeneralInsurance";
 
 export default function Home() {
   return (
@@ -18,8 +24,14 @@ export default function Home() {
       {/* <InsuranceInvestment /> */}
       {/* <FinancialSlider /> */}
       {/* <TailorMadeProducts /> */}
-      <MyProduct/>
-      <MeriMudraWorks/>
+      <MyProduct />
+      <LoanCategories />
+      <CarLoans />
+      <CreditCards />
+      <LifeInsurance />
+      <HealthInsurance />
+      <GeneralInsurance />
+      <MeriMudraWorks />
       <Partners />
       <Footer />
     </main>
