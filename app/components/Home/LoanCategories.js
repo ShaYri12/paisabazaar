@@ -34,10 +34,10 @@ export default function LoanCategories() {
         {categories.map((category, index) => (
           <div key={index} className="space-y-[16px]">
             <div className="flex items-center gap-2">
-              <h2 className="text-[#60bb51] text-[14px] font-bold uppercase">
+              <h2 className="text-greenish text-[14px] font-bold uppercase">
                 {category.title}{" "}
               </h2>
-              <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-[#60bb51]"></div>
+              <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-greenish"></div>
             </div>
             <div className="flex lg:flex-col flex-row lg:gap-0 gap-[30px] lg:space-y-[40px] w-full">
               {category.loans.map((loan, loanIndex) => (

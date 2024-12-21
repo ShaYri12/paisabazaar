@@ -85,7 +85,7 @@ export default function CreditCard() {
 
             {/* Main Content */}
             <div className="mt-[15px]">
-              <h2 className="text-[20px] text-[#60bb51] mb-[8px]">
+              <h2 className="text-[20px] text-greenish mb-[8px]">
                 <span className="font-bold">CARD SAHI,</span>
                 <span className="font-[500]"> MILEGA YAHIN!</span>
               </h2>
@@ -109,7 +109,7 @@ export default function CreditCard() {
               <MobileInput />
 
               {/* Proceed Button */}
-              <button className="w-full bg-green-600 text-white py-4 font-[600] rounded-lg hover:bg-green-700 transition-colors mt-[24px]">
+              <button className="w-full bg-greenish text-white py-4 font-[600] rounded-lg hover:bg-green-600 transition-colors mt-[24px]">
                 Proceed
               </button>
 
@@ -145,7 +145,7 @@ export default function CreditCard() {
                   </h3>
                   <a
                     href="#"
-                    className="text-[#60bb51] text-[10px] font-[600] pt-[8px] flex items-center gap-1 hover:gap-2 transition-all"
+                    className="text-greenish text-[10px] font-[600] pt-[8px] flex items-center gap-1 hover:gap-2 transition-all"
                   >
                     Calculate Now <BsArrowRight />
                   </a>
@@ -164,7 +164,7 @@ export default function CreditCard() {
                   </h3>
                   <a
                     href="#"
-                    className="text-[#60bb51] text-[10px] font-[600] pt-[8px] flex items-center gap-1 hover:gap-2 transition-all"
+                    className="text-greenish text-[10px] font-[600] pt-[8px] flex items-center gap-1 hover:gap-2 transition-all"
                   >
                     Check Now <BsArrowRight />
                   </a>

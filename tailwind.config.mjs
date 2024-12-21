@@ -8,12 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        greenish: "#19b24d",
         background: "var(--background)",
-       'green-border': 'rgba(96, 187, 81, 0.2)',
+        "green-border": "rgba(96, 187, 81, 0.2)",
       },
       boxShadow: {
-        'custom-green': '0px 8px 10px rgba(96, 187, 81, 0.3)',  
-        'hover-blue': '0px 8px 10px rgba(0, 112, 243, 0.1)',
+        "custom-green": "0px 8px 10px rgba(96, 187, 81, 0.3)",
+        "hover-blue": "0px 8px 10px rgba(0, 112, 243, 0.1)",
       },
     },
   },

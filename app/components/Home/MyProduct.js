@@ -94,8 +94,8 @@ const MyProduct = () => {
   return (
     <div className="max-w-[1200px] mx-auto w-full px-[15px] mt-[50px] mb-[20px]">
       <div className="flex items-center gap-2">
-        <h2 className="text-[#60bb51] text-[14px] font-bold">My Products</h2>
-        <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-[#60bb51]"></div>
+        <h2 className="text-greenish text-[14px] font-bold">My Products</h2>
+        <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-greenish"></div>
       </div>
       <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-[8px] mt-6">
         {products.map((product) => (
@@ -122,7 +122,7 @@ const MyProduct = () => {
                 />
               </div>
             </div>
-            <button className="lg:flex items-center gap-1 hidden text-[#60bb51] text-[12px] font-semibold">
+            <button className="lg:flex items-center gap-1 hidden text-greenish text-[12px] font-semibold">
               {product.buttonText} <MdKeyboardDoubleArrowRight />
             </button>
           </Link>

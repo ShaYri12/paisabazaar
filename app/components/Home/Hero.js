@@ -9,10 +9,10 @@ import { IoIosArrowForward } from "react-icons/io";
 const sliderData = [
   {
     title: (
-      <h1 className="text-[13px] lg:text-[28px] font-[700] text-[#60bb51] lg:leading-[44px] lg:mb-[15px]">
+      <h1 className="text-[13px] lg:text-[28px] font-[700] text-greenish lg:leading-[44px] lg:mb-[15px]">
         Your Credit Score & Report <br className="sm:flex hidden" />{" "}
         <span className="line-through">worth ₹1,200</span>{" "}
-        <span className="text-[#60bb51]">Absolutely FREE</span>
+        <span className="text-greenish">Absolutely FREE</span>
       </h1>
     ),
     description: (
@@ -26,10 +26,10 @@ const sliderData = [
   },
   {
     title: (
-      <h1 className="text-[13px] lg:text-[28px] font-[700] text-[#60bb51] lg:leading-[44px] lg:mb-[15px]">
+      <h1 className="text-[13px] lg:text-[28px] font-[700] text-greenish lg:leading-[44px] lg:mb-[15px]">
         Proccessing fee @0 <br className="sm:flex hidden" />{" "}
         <span className="line-through"> processing fee</span>
-        <span className="text-[#60bb51]"> Absolutely FREE</span>
+        <span className="text-greenish"> Absolutely FREE</span>
       </h1>
     ),
     description: (
@@ -58,7 +58,7 @@ export default function Hero() {
     customPaging: (i) => (
       <div
         className={`w-[6px] h-[6px] rounded-full ${
-          i === currentSlide ? "bg-[#60bb51]" : "bg-gray-300"
+          i === currentSlide ? "bg-greenish" : "bg-gray-300"
         }`}
       />
     ),
@@ -95,7 +95,7 @@ export default function Hero() {
                   <div className="">
                     <a
                       href="#"
-                      className="inline-flex items-center justify-center gap-1 lg:gap-2 ps-[10px] lg:ps-[32px] lg:pe-[28px] pe-[10px] py-[4px] lg:py-[18px] text-[11px] sm:text-[12px] lg:text-base font-[600] rounded-[8px] text-white bg-[#60bb51] "
+                      className="inline-flex items-center justify-center gap-1 lg:gap-2 ps-[10px] lg:ps-[32px] lg:pe-[28px] pe-[10px] py-[4px] lg:py-[18px] text-[11px] sm:text-[12px] lg:text-base font-[600] rounded-[8px] text-white bg-greenish hover:bg-green-600"
                     >
                       {slide.cta}
                       <IoIosArrowForward className="text-white" />

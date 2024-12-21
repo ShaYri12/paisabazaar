@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoMdCheckmark } from "react-icons/io";
 import { IoChevronDown } from "react-icons/io5";
+import EMIInput from "../components/EMIInput";
 
 export default function PersonalLoan() {
   const employmentTypes = [
@@ -104,7 +105,7 @@ export default function PersonalLoan() {
         </div>
         <div className="md:p-12 p-5">
           <div className="max-w-[420px] mx-auto mt-[15px]">
-            <h1 className="text-[24px] text-[#60bb51] font-bold">
+            <h1 className="text-[24px] text-greenish font-bold">
               Welcome Back!
             </h1>
             <div className="w-[50px] h-[2px] flex bg-green-500 mt-1"></div>
@@ -155,20 +156,6 @@ export default function PersonalLoan() {
                     <p className="text-sm text-gray-500">
                       Type slowly to select your company
                     </p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="block text-gray-600 text-[14px] font-[600]">
-                      Salary Bank
-                    </label>
-                    <input
-                      type="text"
-                      name="salaryBank"
-                      value={formData.salaryBank}
-                      onChange={handleChange}
-                      className="w-full px-[15px] py-[8px] border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
-                      placeholder="e.g. Indusind Bank"
-                    />
                   </div>
                 </>
               )}
@@ -248,7 +235,7 @@ export default function PersonalLoan() {
                 <label className="block text-gray-600 text-[14px] font-[600]">
                   {formData.employmentType === "Self-Employed Business"
                     ? "Gross Annual Turnover"
-                    : "Gross Annual Income"}
+                    : "Net Monthly  Income"}
                 </label>
                 <input
                   type="text"
@@ -274,20 +261,7 @@ export default function PersonalLoan() {
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="block text-gray-600 text-[14px] font-[600]">
-                  Total EMIs You Pay Currently
-                </label>
-                <input
-                  type="text"
-                  name="currentEMI"
-                  value={formData.currentEMI}
-                  onChange={handleChange}
-                  className="w-full px-[15px] py-[8px] border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
-                  placeholder="1,000"
-                />
-                <p className="text-sm text-gray-500">One Thousand Only</p>
-              </div>
+              <EMIInput />
 
               {formData.employmentType !== "Salaried" && (
                 <div className="space-y-1">
@@ -325,7 +299,7 @@ export default function PersonalLoan() {
 
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-4 font-[600] rounded-lg hover:bg-green-700 transition-colors mt-[24px]"
+                className="w-full bg-greenish text-white py-4 font-[600] rounded-lg hover:bg-green-600 transition-colors mt-[24px]"
               >
                 View Best Offers
               </button>
