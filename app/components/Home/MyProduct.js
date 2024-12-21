@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
@@ -89,8 +90,9 @@ const MyProduct = () => {
       </div>
       <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-[8px] mt-6">
         {products.map((product) => (
-          <div
+          <Link
             key={product.id}
+            href="/product"
             className="relative scale-100 hover:scale-110 overflow-hidden p-[14px] lg:shadow-custom-green rounded-[8px] lg:border lg:border-green-border transition-all duration-300 hover:shadow-hover-blue"
           >
             <div className="flex lg:flex-row flex-col-reverse lg:items-start items-center lg:justify-between justify-center lg:gap-1 gap-2">
@@ -111,10 +113,10 @@ const MyProduct = () => {
                 />
               </div>
             </div>
-            <button className="lg:block hidden text-[#60bb51] text-[12px] font-semibold flex items-center gap-1">
+            <button className="lg:flex items-center gap-1 hidden text-[#60bb51] text-[12px] font-semibold">
               {product.buttonText} <MdKeyboardDoubleArrowRight />
             </button>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
