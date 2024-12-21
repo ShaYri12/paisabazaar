@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CiMenuFries } from "react-icons/ci";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const allProductsMenu = {
@@ -25,51 +24,12 @@ const allProductsMenu = {
     { name: "Old Car Loan", href: "/old-car-loan" },
     { name: "Loan Against Car", href: "/loan-against-car" },
   ],
-  "Credit Cards": [
-    { name: "HDFC", href: "/hdfc" },
-    { name: "ICICI", href: "/icici" },
-    { name: "INDUSIND", href: "/indusind" },
-    { name: "STASHFIN", href: "/stashfin" },
-    { name: "AU", href: "/au" },
-    { name: "AXIS", href: "/axis" },
-    { name: "KOTAK", href: "/kotak" },
-    { name: "CITI", href: "/citi" },
-    { name: "STANDARD CHARTERED", href: "/standard-chartered" },
-  ],
-  "Life Insurance": [
-    { name: "Retirement & Pension Plans", href: "/retirement-plans" },
-    {
-      name: "Guaranteed Income & Saving Plans",
-      href: "/guaranteed-income-plans",
-    },
-    { name: "Investment Plans (Endowment Plans)", href: "/investment-plans" },
-    { name: "ULIP (Unit-Linked Insurance Plans)", href: "/ulip" },
-    { name: "Child Education/Marriage Plans", href: "/child-plans" },
-    { name: "Term Life Insurance", href: "/term-life-insurance" },
-  ],
-  "Health Insurance": [
-    { name: "Family Floater Insurance", href: "/family-floater" },
-    { name: "Individual Health Insurance", href: "/individual-health" },
-    { name: "Senior Citizen Health Insurance", href: "/senior-health" },
-    { name: "Critical Illness Cover", href: "/critical-illness" },
-    { name: "Maternity Health Insurance", href: "/maternity-health" },
-    { name: "Personal Accident Insurance", href: "/personal-accident" },
-    { name: "Group Health Insurance", href: "/group-health" },
-  ],
-  "General Insurance": [
-    { name: "Car Insurance", href: "/car-insurance" },
-    { name: "Home Insurance", href: "/home-insurance" },
-    { name: "Fire Insurance", href: "/fire-insurance" },
-    { name: "Travel Insurance", href: "/travel-insurance" },
-    { name: "Building Insurance", href: "/building-insurance" },
-  ],
 };
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -182,37 +142,23 @@ export default function Navbar() {
             <div className="space-y-1">
               {Object.entries(allProductsMenu).map(([category, items]) => (
                 <div key={category} className="border-b border-gray-200 py-4">
-                  <button
-                    onClick={() =>
-                      setMobileDropdown(
-                        mobileDropdown === category ? null : category
-                      )
-                    }
-                    className="flex items-center justify-between w-full"
-                  >
+                  <button className="flex items-center justify-between w-full">
                     <span className="text-[#5AA74D] font-semibold text-sm">
                       {category}
                     </span>
-                    <MdOutlineKeyboardArrowDown
-                      className={`h-5 w-5 transform transition-transform ${
-                        mobileDropdown === category ? "rotate-180" : ""
-                      }`}
-                    />
                   </button>
-                  {mobileDropdown === category && (
-                    <ul className="mt-2 space-y-2">
-                      {items.map((item) => (
-                        <li key={item.name}>
-                          <Link
-                            href={item.href}
-                            className="block px-4 py-2 text-sm text-gray-600 hover:text-[#0066FF]"
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <ul className="mt-2 space-y-2">
+                    {items.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="block px-4 py-2 text-sm text-gray-600 hover:text-[#0066FF]"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

@@ -12,6 +12,7 @@ const products = [
     buttonText: "Get Best Offers",
     imageSrc: "/assets/credit-card.png",
     imageAlt: "credit-card",
+    link: "/credit-card",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/personal-loan.png",
     imageAlt: "personal-loan",
+    link: "/personal-loan",
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/business-loan.png",
     imageAlt: "business-loan",
+    link: "/credit-card",
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/home-loan.png",
     imageAlt: "home-loan",
+    link: "/credit-card",
   },
   {
     id: 5,
@@ -46,6 +50,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/loan-against-property.png",
     imageAlt: "loan-against-property",
+    link: "/credit-card",
   },
   {
     id: 6,
@@ -54,6 +59,7 @@ const products = [
     buttonText: "Reduce Your EMI",
     imageSrc: "/assets/loan-against-car.png",
     imageAlt: "car-auto-loan",
+    link: "/credit-card",
   },
   {
     id: 7,
@@ -62,6 +68,7 @@ const products = [
     buttonText: "Get Instant Loan",
     imageSrc: "/assets/general-insurance.png",
     imageAlt: "general-insurance",
+    link: "/credit-card",
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ const products = [
     buttonText: "Starting @ ₹200/month*",
     imageSrc: "/assets/health-insurance.png",
     imageAlt: "health-insurance",
+    link: "/credit-card",
   },
   {
     id: 9,
@@ -78,6 +86,7 @@ const products = [
     buttonText: "Starting from ₹490/month*",
     imageSrc: "/assets/life-insurance.png",
     imageAlt: "life-insurance",
+    link: "/credit-card",
   },
 ];
 
@@ -92,7 +101,7 @@ const MyProduct = () => {
         {products.map((product) => (
           <Link
             key={product.id}
-            href="/product"
+            href={product.link}
             className="relative scale-100 hover:scale-110 overflow-hidden p-[14px] lg:shadow-custom-green rounded-[8px] lg:border lg:border-green-border transition-all duration-300 hover:shadow-hover-blue"
           >
             <div className="flex lg:flex-row flex-col-reverse lg:items-start items-center lg:justify-between justify-center lg:gap-1 gap-2">
