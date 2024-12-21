@@ -76,12 +76,15 @@ export default function Navbar() {
                 </button>
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <input
                 type="text"
                 placeholder="Search"
-                className="md:w-[270px] w-[180px] md:h-10 h-[32px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm"
+                className="sm:block hidden md:w-[270px] w-[180px] md:h-10 h-[32px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm"
               />
+              <button className="rounded-lg bg-greenish/10 md:px-[24px] px-[20px] py-2 py-1 md:text-base text-[14px] text-greenish hover:bg-greenish/20 transition-colors">
+                Login
+              </button>
               <button className="md:hidden z-50" onClick={toggleMenu}>
                 <CiMenuFries
                   strokeWidth={0.6}
@@ -139,6 +142,11 @@ export default function Navbar() {
         <div className="h-16 border-b" /> {/* Spacer for navbar */}
         <div className="overflow-y-auto h-[calc(100vh-64px)] pb-20">
           <div className="px-4 py-2">
+            <input
+              type="text"
+              placeholder="Search"
+              className="sm:hidden w-full md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2"
+            />
             <div className="space-y-1">
               {Object.entries(allProductsMenu).map(([category, items]) => (
                 <div key={category} className="border-b border-gray-200 py-4">
