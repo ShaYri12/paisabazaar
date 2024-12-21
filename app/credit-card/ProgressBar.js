@@ -1,10 +1,11 @@
-export function ProgressBar({ currentStep, totalSteps }) {
+export function ProgressBar({ currentStep, totalSteps, handleBack }) {
   return (
-    <div className="flex items-center justify-between mb-8">
+    <div className="flex items-center justify-between mb-3">
       <button
+        onClick={handleBack}
         className={`${
           currentStep > 1 ? "visible" : "invisible"
-        } p-2 rounded-lg bg-gray-100 hover:bg-gray-200`}
+        } p-2 rounded-lg bg-greenish/10 hover:bg-greenish/[15%] transition-colors`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +22,7 @@ export function ProgressBar({ currentStep, totalSteps }) {
           <path d="m15 18-6-6 6-6" />
         </svg>
       </button>
-      <div className="text-sm font-medium text-gray-600">
+      <div className="text-xs font-[600] text-green-800">
         Steps {currentStep}/{totalSteps}
       </div>
     </div>

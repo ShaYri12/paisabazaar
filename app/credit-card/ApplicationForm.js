@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { toWords } from "number-to-words";
 import { ProgressBar } from "./ProgressBar";
 
 export function ApplicationForm() {
@@ -23,17 +24,42 @@ export function ApplicationForm() {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    // Remove any non-digit characters
+    const numericValue = value.replace(/[^0-9]/g, "");
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: numericValue,
+    }));
+  };
+
+  const formattedMI = useMemo(() => {
+    if (!formData.monthlyIncome) return "";
+    return new Intl.NumberFormat("en-IN").format(formData.monthlyIncome);
+  }, [formData.monthlyIncome]);
+
+  const miInWords = useMemo(() => {
+    if (!formData.monthlyIncome) return "";
+    const words = toWords(parseInt(formData.monthlyIncome, 10));
+    return words.charAt(0).toUpperCase() + words.slice(1) + " Only";
+  }, [formData.monthlyIncome]);
+
   return (
-    <div className="w-full max-w-md mx-auto p-6">
-      <ProgressBar currentStep={currentStep} totalSteps={3} />
+    <div className="w-full">
+      <ProgressBar
+        currentStep={currentStep}
+        totalSteps={3}
+        handleBack={handleBack}
+      />
 
       {currentStep === 1 && (
         <div className="space-y-6">
           <div>
-            <h1 className="text-2xl font-bold text-blue-600 mb-2">
+            <h1 className="text-2xl font-bold text-greenish mb-2">
               Employment Type
             </h1>
-            <p className="text-gray-600 text-sm mb-6">
+            <p className="text-gray-600 text-[11px] mb-6">
               We require this information to recommend cards based on your
               profile
             </p>
@@ -43,14 +69,16 @@ export function ApplicationForm() {
             <label
               className={`block p-4 rounded-lg border-2 cursor-pointer ${
                 formData.employmentType === "salaried"
-                  ? "border-blue-600 bg-blue-50"
-                  : "border-gray-200 hover:border-blue-200"
+                  ? "border-greenish bg-greenish/[5%]"
+                  : "border-gray-200 hover:border-greenish/40"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-medium text-gray-900">Salaried</div>
-                  <div className="text-sm text-gray-500">
+                  <div className="font-medium text-sm text-gray-900 mb-[4px]">
+                    Salaried
+                  </div>
+                  <div className="text-xs text-gray-500">
                     Receives fixed monthly income
                   </div>
                 </div>
@@ -59,7 +87,7 @@ export function ApplicationForm() {
                   name="employmentType"
                   checked={formData.employmentType === "salaried"}
                   onChange={() => handleEmploymentTypeChange("salaried")}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 accent-green-600 hover:accent-green-600 text-greenish focus:ring-greenish/[5%]"
                 />
               </div>
             </label>
@@ -67,14 +95,16 @@ export function ApplicationForm() {
             <label
               className={`block p-4 rounded-lg border-2 cursor-pointer ${
                 formData.employmentType === "self-employed"
-                  ? "border-blue-600 bg-blue-50"
-                  : "border-gray-200 hover:border-blue-200"
+                  ? "border-greenish bg-greenish/[5%]"
+                  : "border-gray-200 hover:border-greenish/40"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-medium text-gray-900">Self-Employed</div>
-                  <div className="text-sm text-gray-500">
+                  <div className="font-medium text-sm text-gray-900 mb-[4px]">
+                    Self-Employed
+                  </div>
+                  <div className="text-xs text-gray-500">
                     Working professional (Doctor, CA, etc.)
                   </div>
                 </div>
@@ -83,7 +113,7 @@ export function ApplicationForm() {
                   name="employmentType"
                   checked={formData.employmentType === "self-employed"}
                   onChange={() => handleEmploymentTypeChange("self-employed")}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 accent-green-600 hover:accent-green-600 text-greenish focus:ring-greenish/[5%]"
                 />
               </div>
             </label>
@@ -91,23 +121,23 @@ export function ApplicationForm() {
             <label
               className={`block p-4 rounded-lg border-2 cursor-pointer ${
                 formData.employmentType === "business-owner"
-                  ? "border-blue-600 bg-blue-50"
-                  : "border-gray-200 hover:border-blue-200"
+                  ? "border-greenish bg-greenish/[5%]"
+                  : "border-gray-200 hover:border-greenish/40"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-medium text-gray-900">
+                  <div className="font-medium text-sm text-gray-900 mb-[4px]">
                     Business Owner
                   </div>
-                  <div className="text-sm text-gray-500">Runs a business</div>
+                  <div className="text-xs text-gray-500">Runs a business</div>
                 </div>
                 <input
                   type="radio"
                   name="employmentType"
                   checked={formData.employmentType === "business-owner"}
                   onChange={() => handleEmploymentTypeChange("business-owner")}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 accent-green-600 hover:accent-green-600 text-greenish focus:ring-greenish/[5%]"
                 />
               </div>
             </label>
@@ -118,35 +148,32 @@ export function ApplicationForm() {
       {currentStep === 2 && (
         <div className="space-y-6">
           <div>
-            <h1 className="text-2xl font-bold text-blue-600 mb-2">
+            <h1 className="text-2xl font-bold text-greenish mb-2">
               Your In-hand Salary
             </h1>
-            <p className="text-gray-600 text-sm mb-6">
+            <p className="text-gray-600 text-[11px] mb-6">
               We require this information to suggest best cards for you
             </p>
           </div>
 
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Monthly Income
-              </label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
-                  ₹
-                </span>
-                <input
-                  type="text"
-                  value={formData.monthlyIncome}
-                  onChange={(e) =>
-                    setFormData({ ...formData, monthlyIncome: e.target.value })
-                  }
-                  className="block w-full pl-8 pr-12 py-3 border-b border-gray-300 focus:border-blue-500 focus:ring-0 text-lg"
-                  placeholder="30,000"
-                />
-              </div>
-              <p className="mt-2 text-sm text-gray-500">Thirty Thousand Only</p>
+          <div className="space-y-2">
+            <label className="block text-gray-400 text-[14px] font-[600]">
+              Monthly Income
+            </label>
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 font-[600]">
+                ₹
+              </span>
+              <input
+                type="text"
+                name="monthlyIncome"
+                value={formattedMI}
+                onChange={handleChange}
+                className="w-full pl-8 px-[15px] py-[8px] border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
+                placeholder="30,000"
+              />
             </div>
+            <p className="text-sm text-gray-500 capitalize">{miInWords}</p>
           </div>
         </div>
       )}
@@ -154,38 +181,36 @@ export function ApplicationForm() {
       {currentStep === 3 && (
         <div className="space-y-6">
           <div>
-            <h1 className="text-2xl font-bold text-blue-600 mb-2">
+            <h1 className="text-2xl font-bold text-greenish mb-2">
               Your Current
               <br />
               Residential PIN Code
             </h1>
-            <p className="text-gray-600 text-sm mb-6">
+            <p className="text-gray-600 text-[11px] mb-6">
               We require this information to identify banks which can serve you
               the best
             </p>
           </div>
 
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Current Residential Pincode
-              </label>
-              <input
-                type="text"
-                value={formData.pincode}
-                onChange={(e) =>
-                  setFormData({ ...formData, pincode: e.target.value })
-                }
-                className="block w-full py-3 border-b border-gray-300 focus:border-blue-500 focus:ring-0 text-lg"
-                placeholder="110001"
-                maxLength={6}
-              />
-              <div className="flex justify-between mt-2">
-                <p className="text-sm text-gray-500">Delhi, Delhi-NCR</p>
-                <p className="text-sm text-gray-500">
-                  {formData.pincode.length}/6 Digits
-                </p>
-              </div>
+          <div className="space-y-2">
+            <label className="block text-gray-400 text-[14px] font-[600]">
+              Current Residential Pincode
+            </label>
+            <input
+              type="text"
+              value={formData.pincode}
+              onChange={(e) =>
+                setFormData({ ...formData, pincode: e.target.value })
+              }
+              className="block w-full px-[15px] py-[8px] border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
+              placeholder="110001"
+              maxLength={6}
+            />
+            <div className="flex justify-between mt-2">
+              <p className="text-sm text-gray-500">Delhi, Delhi-NCR</p>
+              <p className="text-sm text-gray-500">
+                {formData.pincode.length}/6 Digits
+              </p>
             </div>
           </div>
         </div>
@@ -193,7 +218,7 @@ export function ApplicationForm() {
 
       <button
         onClick={handleContinue}
-        className="w-full mt-8 px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="w-full mt-8 px-6 py-3 text-white bg-greenish rounded-lg hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-greenish/[5%] focus:ring-offset-2"
       >
         Continue
       </button>

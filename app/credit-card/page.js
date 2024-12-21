@@ -49,7 +49,7 @@ export default function CreditCard() {
           <Image src="/logo.png" alt="logo" width={75} height={32} />
         </Link>
         <div className="max-w-[390px] mx-auto">
-          <div className="mb-12">
+          <div className="mb-4">
             <h1 className="text-[24px] font-bold text-green-800 py-[20px]">
               Credit Card for everyone!
             </h1>
@@ -69,12 +69,12 @@ export default function CreditCard() {
               ))}
             </div>
           </div>
-          <div className="relative flex items-center justify-center mt-8">
+          <div className="relative flex items-center justify-center mt-4">
             <Image
-              src="/assets/cards.svg"
+              src="/assets/cards2.png"
               alt="Credit Cards Stack"
-              width={290}
-              height={290}
+              width={310}
+              height={310}
             />
           </div>
         </div>
