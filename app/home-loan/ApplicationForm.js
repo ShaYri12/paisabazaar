@@ -6,13 +6,24 @@ export function ApplicationForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     homeLoanAmount: "",
-    monthlyIncome: "",
-    pincode: "",
+    city: "",
+    days: "",
   });
+  const [showAll, setShowAll] = useState(false);
 
   const handleLoanChange = (value) => {
     setFormData({ ...formData, homeLoanAmount: value });
-    setCurrentStep((prev) => Math.min(prev + 1, 3));
+    setCurrentStep((prev) => Math.min(prev + 1, 5));
+  };
+
+  const handleCitySelection = (value) => {
+    setFormData({ ...formData, city: value });
+    setCurrentStep((prev) => Math.min(prev + 1, 5));
+  };
+
+  const handleDaysSelection = (value) => {
+    setFormData({ ...formData, days: value });
+    setCurrentStep((prev) => Math.min(prev + 1, 5));
   };
 
   const loanRanges = [
@@ -24,9 +35,46 @@ export function ApplicationForm() {
     { value: "75+", label: "₹75 Lacs +" },
   ];
 
+  const cities = [
+    { value: "Delhi", label: "Delhi" },
+    { value: "Mumbai", label: "Mumbai" },
+    { value: "Pune", label: "Pune" },
+    { value: "Chennai", label: "Chennai" },
+    { value: "Bengaluru", label: "Bengaluru" },
+    { value: "Hyderabad", label: "Hyderabad" },
+    { value: "Kolkata", label: "Kolkata" },
+    { value: "Jaipur", label: "Jaipur" },
+    { value: "Ahmedabad", label: "Ahmedabad" },
+    { value: "Surat", label: "Surat" },
+    { value: "Lucknow", label: "Lucknow" },
+    { value: "Kanpur", label: "Kanpur" },
+    { value: "Nagpur", label: "Nagpur" },
+    { value: "Indore", label: "Indore" },
+    { value: "Bhopal", label: "Bhopal" },
+    { value: "Patna", label: "Patna" },
+    { value: "Ludhiana", label: "Ludhiana" },
+    { value: "Agra", label: "Agra" },
+    { value: "Coimbatore", label: "Coimbatore" },
+    { value: "Vadodara", label: "Vadodara" },
+  ];
+
+  const loanDays = [
+    { value: "0-30", label: "Within 30 Days" },
+    { value: "31-90", label: "31-90 Days" },
+    { value: "91-180", label: "91-180 Days" },
+    { value: "180+", label: "180+ Days" },
+  ];
+
   const handleBack = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
   };
+
+  const handleToggleCities = () => {
+    setShowAll(!showAll);
+  };
+
+  // Limit cities to 8 if showAll is false
+  const visibleCities = showAll ? cities : cities.slice(0, 8);
 
   return (
     <div className="w-full">
@@ -43,7 +91,7 @@ export function ApplicationForm() {
           </h2>
           <div className="w-[50px] h-[2px] bg-green-500 mt-1"></div>
           <div className="space-y-4 mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-6 gap-y-4 gap-x-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-5 gap-y-4 gap-x-4">
               {loanRanges.map((range) => (
                 <label
                   key={range.value}
@@ -97,15 +145,15 @@ export function ApplicationForm() {
       {currentStep === 2 && (
         <div className="">
           <h2 className="text-2xl font-bold text-greenish">
-            Select your desired <br /> Home Loan Amount
+            Where are you looking to <br /> buy your property
           </h2>
           <div className="w-[50px] h-[2px] bg-green-500 mt-1"></div>
           <div className="space-y-4 mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-6 gap-y-4 gap-x-4">
-              {loanRanges.map((range) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-5 gap-y-4 gap-x-4">
+              {visibleCities.map((city) => (
                 <label
-                  key={range.value}
-                  htmlFor={range.value}
+                  key={city.value}
+                  htmlFor={city.value}
                   className="cursor-pointer"
                 >
                   <div
@@ -113,7 +161,7 @@ export function ApplicationForm() {
                 relative overflow-hidden rounded-lg border border-gray-200
                 transition-colors hover:bg-greenish/[5%]
                 ${
-                  formData.homeLoanAmount === range.value
+                  formData.city === city.value
                     ? "border-greenish bg-greenish/[6%]"
                     : ""
                 }
@@ -122,20 +170,20 @@ export function ApplicationForm() {
                     <div className="flex items-center justify-between p-4">
                       <span
                         className={`text-[14px] font-[500] ${
-                          formData.homeLoanAmount === range.value
+                          formData.city === city.value
                             ? "text-greenish"
                             : "text-greenish"
                         }`}
                       >
-                        {range.label}
+                        {city.label}
                       </span>
                       <input
                         type="radio"
-                        id={range.value}
-                        name="loanRange"
-                        value={range.value}
-                        checked={formData.homeLoanAmount === range.value}
-                        onChange={(e) => handleLoanChange(e.target.value)}
+                        id={city.value}
+                        name="city"
+                        value={city.value}
+                        checked={formData.city === city.value}
+                        onChange={(e) => handleCitySelection(e.target.value)}
                         className="h-4 w-4 cursor-pointer accent-green-600 border-greenish text-greenish focus:ring-greenish"
                       />
                     </div>
@@ -144,10 +192,12 @@ export function ApplicationForm() {
               ))}
             </div>
 
-            <p className="mt-6 text-[10px] text-gray-500">
-              I authorize Paisabazaar to share details of my Home Loan enquiry
-              with Paisabazaar affiliated banks and lending partners
-            </p>
+            <button
+              onClick={handleToggleCities}
+              className="mt-6 flex text-[14px] font-[500] text-greenish underline w-fit mx-auto hover:text-green-700 transition-colors"
+            >
+              {showAll ? "Show Less Cities" : "View All Cities"}
+            </button>
           </div>
         </div>
       )}
@@ -155,15 +205,15 @@ export function ApplicationForm() {
       {currentStep === 3 && (
         <div className="">
           <h2 className="text-2xl font-bold text-greenish">
-            Select your desired <br /> Home Loan Amount
+            When are you planning to <br /> take the loan?
           </h2>
           <div className="w-[50px] h-[2px] bg-green-500 mt-1"></div>
           <div className="space-y-4 mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-6 gap-y-4 gap-x-4">
-              {loanRanges.map((range) => (
+              {loanDays.map((days) => (
                 <label
-                  key={range.value}
-                  htmlFor={range.value}
+                  key={days.value}
+                  htmlFor={days.value}
                   className="cursor-pointer"
                 >
                   <div
@@ -171,7 +221,7 @@ export function ApplicationForm() {
                 relative overflow-hidden rounded-lg border border-gray-200
                 transition-colors hover:bg-greenish/[5%]
                 ${
-                  formData.homeLoanAmount === range.value
+                  formData.days === days.value
                     ? "border-greenish bg-greenish/[6%]"
                     : ""
                 }
@@ -180,20 +230,20 @@ export function ApplicationForm() {
                     <div className="flex items-center justify-between p-4">
                       <span
                         className={`text-[14px] font-[500] ${
-                          formData.homeLoanAmount === range.value
+                          formData.days === days.value
                             ? "text-greenish"
                             : "text-greenish"
                         }`}
                       >
-                        {range.label}
+                        {days.label}
                       </span>
                       <input
                         type="radio"
-                        id={range.value}
-                        name="loanRange"
-                        value={range.value}
-                        checked={formData.homeLoanAmount === range.value}
-                        onChange={(e) => handleLoanChange(e.target.value)}
+                        id={days.value}
+                        name="loanDays"
+                        value={days.value}
+                        checked={formData.days === days.value}
+                        onChange={(e) => handleDaysSelection(e.target.value)}
                         className="h-4 w-4 cursor-pointer accent-green-600 border-greenish text-greenish focus:ring-greenish"
                       />
                     </div>
@@ -201,11 +251,6 @@ export function ApplicationForm() {
                 </label>
               ))}
             </div>
-
-            <p className="mt-6 text-[10px] text-gray-500">
-              I authorize Paisabazaar to share details of my Home Loan enquiry
-              with Paisabazaar affiliated banks and lending partners
-            </p>
           </div>
         </div>
       )}
@@ -251,7 +296,7 @@ export function ApplicationForm() {
                         name="loanRange"
                         value={range.value}
                         checked={formData.homeLoanAmount === range.value}
-                        onChange={(e) => handleLoanChange(e.target.value)}
+                        onChange={(e) => handleCitySelection(e.target.value)}
                         className="h-4 w-4 cursor-pointer accent-green-600 border-greenish text-greenish focus:ring-greenish"
                       />
                     </div>
