@@ -5,12 +5,18 @@ import { FaUser, FaUserTie, FaFemale, FaChild } from "react-icons/fa";
 import ProgressBar from "./ProgressBar";
 import MemberCard from "./MemberCard";
 import AgeStep from "./AgeStep";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import {
+  IoIosArrowDown,
+  IoIosArrowForward,
+  IoMdCheckmark,
+} from "react-icons/io";
 import { IoChevronBack } from "react-icons/io5";
 import CityStep from "./CityStep";
 import SaveProgressStep from "./SaveProgressStep";
 import Navbar from "../components/Navbar";
 import MedicalHistoryStep from "./MedicalHistoryStep";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function InsurancePlan() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -81,18 +87,70 @@ export default function InsurancePlan() {
     // View Plan Code
   };
 
+  const features = [
+    "Health Insurance Features and Benifits",
+    "Pick Best Credit Card Suiting Your Needs",
+    "Simplified Application Process",
+  ];
+
   return (
-    <div>
-      <Navbar />
-      <div className="relative min-h-screen py-8 px-4 mt-[72px] sm:px-6 lg:px-8 flex items-center justify-center w-full">
+    <main className="flex md:flex-row flex-col md:h-screen overflow-y-auto">
+      {/* Left Section */}
+      <div
+        className="md:block hidden lg:w-[43%] md:w-[47%] w-full px-[24px] py-[10px] md:h-screen overflow-y-auto"
+        style={{
+          background:
+            "linear-gradient(180deg,rgb(222, 254, 202), rgba(243, 244, 255, 0))",
+        }}
+      >
+        <Link
+          href="/"
+          className="flex-shrink-0 flex md:w-[75px] w-[70px] items-center ms-[-9px] my-[10px]"
+        >
+          <Image src="/logo.png" alt="logo" width={75} height={32} />
+        </Link>
+        <div className="max-w-[390px] mx-auto">
+          <div className="mb-4">
+            <h1 className="text-[24px] font-bold text-green-800 py-[20px]">
+              Health Insurance
+            </h1>
+            <div className="space-y-[30px]">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <div className="w-[24px] h-[24px] min-w-[24px] min-h-[24px] rounded-full bg-white/40 flex items-center justify-center">
+                    <div className="w-[16px] h-[16px] rounded-full bg-white flex items-center justify-center">
+                      <IoMdCheckmark
+                        size={15}
+                        className="text-green-600 flex-shrink-0"
+                      />
+                    </div>
+                  </div>
+                  <span className="text-[14px] text-gray-700">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center mt-4">
+            <Image
+              src="/assets/health-insurance2.png"
+              alt="Health Insurance"
+              width={310}
+              height={310}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Right Section */}
+      <div className="relative lg:w-[57%] md:w-[53%] w-full bg-white overflow-y-auto md:h-screen py-8 pt-[120px] px-4 sm:px-6 lg:px-8 flex items-center justify-center w-full">
         <ProgressBar progress={(currentStep - 1) * 25} />
 
-        <div className="w-full max-w-4xl mx-auto relative mt-[20px]">
+        <div className="max-w-4xl mx-auto md:mt-[20px] mt-[40px] w-full">
           {/* Back Button */}
           {currentStep > 1 && (
             <button
               onClick={handleBack}
-              className="md:flex hidden absolute left-0 top-1/2 -translate-y-1/2 mb-8 w-12 h-12  items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg"
+              className="md:flex hidden absolute left-4 top-14 -translate-y-1/2 mb-8 w-12 h-12  items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg"
             >
               <IoChevronBack className="w-6 h-6 text-greenish" />
             </button>
@@ -227,6 +285,6 @@ export default function InsurancePlan() {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -33,7 +33,7 @@ export default function MedicalHistory({ handleViewPlan, handleBack }) {
 
   return (
     <div className="w-full">
-      <h1 className="text-[32px] font-[600] text-gray-900 mb-[14px] text-center">
+      <h1 className="xl:text-[32px] md:text-[28px] text-[24px] font-[600] text-gray-900 mb-[24px] text-center">
         Medical history
       </h1>
       <p className="text-gray-600 mb-[24px] text-center">

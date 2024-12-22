@@ -22,14 +22,14 @@ export default function MemberCard({
       aria-pressed={isSelected}
     >
       <div className="flex items-center gap-3">
-        <div className="w-[65px] h-[65px] rounded-full bg-gray-100 flex items-center justify-center">
+        <div className="w-[50px] h-[50px] rounded-full bg-gray-100 flex items-center justify-center">
           <Icon
-            className="w-[45px] h-[45px] text-gray-600"
+            className="w-[30px] h-[30px] text-gray-600"
             aria-hidden="true"
           />
         </div>
         <span
-          className={`text-[18px] ${
+          className={`text-[16px] ${
             isSelected ? "text-greenish font-[500]" : "text-gray-700"
           }`}
         >

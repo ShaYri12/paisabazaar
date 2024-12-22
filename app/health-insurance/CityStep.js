@@ -33,7 +33,7 @@ export default function CityStep({ handleContinue, handleBack }) {
 
   return (
     <div className="w-full">
-      <h1 className="text-[32px] font-[600] text-gray-900 mb-[24px] text-center">
+      <h1 className="xl:text-[32px] md:text-[28px] text-[24px] font-[600] text-gray-900 mb-[24px] text-center">
         Select age of covered member(s)
       </h1>
       <div className="max-w-md mx-auto">
