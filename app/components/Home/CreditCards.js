@@ -2,15 +2,8 @@ import Card from "../Card";
 
 export default function CreditCards() {
   const carLoans = [
-    { title: "HDFC", icon: "/assets/hdfc.png" },
-    { title: "ICICI", icon: "/assets/icici.png" },
-    { title: "INDUSIND", icon: "/assets/indusind.png" },
-    { title: "STASHFIN ", icon: "/assets/stashfin.png" },
-    { title: "AU", icon: "/assets/au.png" },
-    { title: "AXIS", icon: "/assets/axis.png" },
-    { title: "KOTAK", icon: "/assets/kotak.png" },
-    { title: "CITI", icon: "/assets/citi.png" },
-    { title: "STANDARD CHARTERED", icon: "/assets/standard-chartered.png" },
+    { title: "Mutual Funds", icon: "/assets/hdfc.png" },
+    { title: "Fixed Deposit", icon: "/assets/icici.png" },
   ];
 
   return (

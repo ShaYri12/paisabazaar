@@ -25,7 +25,18 @@ export default function EMIInput() {
 
   const emiInWords = useMemo(() => {
     if (!formData.currentEMI) return "";
-    const words = toWords(parseInt(formData.currentEMI, 10));
+    const number = parseInt(formData.currentEMI, 10);
+
+    // Convert to words with a custom implementation for "Lac"
+    const crorePart = Math.floor(number / 10000000);
+    const lacPart = Math.floor((number % 10000000) / 100000);
+    const rest = number % 100000;
+
+    const croreText = crorePart > 0 ? `${toWords(crorePart)} Crore` : "";
+    const lacText = lacPart > 0 ? `${toWords(lacPart)} Lac` : "";
+    const restText = rest > 0 ? `${toWords(rest)}` : "";
+
+    const words = [croreText, lacText, restText].filter(Boolean).join(" ");
     return words.charAt(0).toUpperCase() + words.slice(1) + " Only";
   }, [formData.currentEMI]);
 

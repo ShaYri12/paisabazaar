@@ -4,13 +4,11 @@ import { IoChevronDown } from "react-icons/io5";
 
 export default function AgeStep({ members, handleContinue }) {
   return (
-    <div className="w-full max-w-md mx-auto">
-      {/* Main Content */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h1 className="text-2xl md:text-3xl text-center font-semibold text-[#1e2c4f] mb-8">
-          Select age of covered member(s)
-        </h1>
-
+    <div className="w-full">
+      <h1 className="text-[32px] font-[500] text-gray-900 mb-[24px] text-center">
+        Select age of covered member(s)
+      </h1>
+      <div className="max-w-md mx-auto">
         {/* Age Selection Group */}
         <div className="space-y-6">
           {Object.entries(members).map(([id, value]) => {
@@ -19,7 +17,7 @@ export default function AgeStep({ members, handleContinue }) {
 
             return (
               <div key={id} className="relative">
-                <label className="block text-sm text-gray-600 mb-2">
+                <label className="block text-sm text-gray-600 mb-1">
                   {id.charAt(0).toUpperCase() + id.slice(1)} Age
                 </label>
                 <div className="flex items-center gap-4">
@@ -36,8 +34,8 @@ export default function AgeStep({ members, handleContinue }) {
                     </svg>
                   </div>
                   <div className="relative flex-1">
-                    <select className="w-full p-4 cursor-pointer appearance-none border rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                      <option>20 yr</option>
+                    <select className="w-full px-[15px] py-[8px] pe-12 appearance-none border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 cursor-pointer">
+                      <option>Select Age</option>
                       {[...Array(81)].map((_, i) => (
                         <option key={i}>{i + 20} yr</option>
                       ))}
@@ -53,7 +51,7 @@ export default function AgeStep({ members, handleContinue }) {
         {/* Continue Button */}
         <button
           onClick={handleContinue}
-          className="flex items-center justify-center shadow-lg mt-8 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
+          className="flex items-center justify-center shadow-lg mt-10 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
         >
           Continue <IoIosArrowForward />
         </button>

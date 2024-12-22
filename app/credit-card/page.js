@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { BsCheckCircle, BsSearch, BsArrowRight } from "react-icons/bs";
+import { BsCheckCircle, BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
 import { IoMdCheckmark } from "react-icons/io";
 import MobileInput from "../components/MobileInput";
@@ -94,16 +94,6 @@ export default function CreditCard() {
           <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>
-                {/* Search Bar */}
-                <div className="relative ">
-                  <input
-                    type="text"
-                    placeholder="Search Credit Card"
-                    className="w-full px-[15px] md:py-[12px] py-[8px] pe-12 border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
-                  />
-                  <BsSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                </div>
-
                 {/* Main Content */}
                 <div className="mt-[15px]">
                   <h2 className="text-[20px] text-greenish">

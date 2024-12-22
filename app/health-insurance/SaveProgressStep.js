@@ -61,15 +61,14 @@ export default function SaveProgressForm({ handleContinue }) {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h1 className="text-2xl md:text-3xl text-center font-semibold text-[#1e2c4f] mb-8">
-          Save your progress
-        </h1>
-        <p className="text-gray-600 mb-8">
-          Get to plans directly next time you visit us
-        </p>
-
+    <div className="w-full">
+      <h1 className="text-2xl md:text-3xl text-center font-semibold text-[#1e2c4f] mb-8">
+        Save your progress
+      </h1>
+      <p className="text-gray-600 mb-8 text-center">
+        Get to plans directly next time you visit us
+      </p>
+      <div className="max-w-md mx-auto">
         {/* Form Fields */}
         <form className="space-y-4">
           {/* Full Name */}

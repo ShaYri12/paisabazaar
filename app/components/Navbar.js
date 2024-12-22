@@ -155,7 +155,7 @@ export default function Navbar() {
                       {category}
                     </span>
                   </button>
-                  <ul className="mt-2 space-y-2">
+                  <ul className="mt-2 ">
                     {items.map((item) => (
                       <li key={item.name}>
                         <Link

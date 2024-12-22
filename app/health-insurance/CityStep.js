@@ -27,12 +27,11 @@ export default function CityStep({ handleContinue }) {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h1 className="text-2xl md:text-3xl text-center font-semibold text-[#1e2c4f] mb-8">
-          Select age of covered member(s)
-        </h1>
-
+    <div className="w-full">
+      <h1 className="text-[32px] font-[500] text-gray-900 mb-[24px] text-center">
+        Select age of covered member(s)
+      </h1>
+      <div className="max-w-md mx-auto">
         {/* City Input */}
         <div className="relative mb-8">
           <label className="block text-sm text-gray-600 mb-2">
@@ -43,7 +42,7 @@ export default function CityStep({ handleContinue }) {
               type="text"
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="w-full p-4 border rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-[15px] md:py-[12px] py-[8px] pe-12 border border-gray-100 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
               placeholder="Enter your city"
             />
             {selectedCity && (
@@ -65,10 +64,10 @@ export default function CityStep({ handleContinue }) {
               <button
                 key={city}
                 onClick={() => handleCitySelect(city)}
-                className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                className={`px-[16px] py-[4px] rounded-full text-sm transition-colors ${
                   selectedCity === city
-                    ? "bg-blue-100 text-blue-600 border border-blue-200"
-                    : "bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100"
+                    ? "bg-greenish/[5%] text-greenish border border-greenish"
+                    : "bg-gray-50 text-gray-600 border border-gray-300 hover:bg-gray-100"
                 }`}
               >
                 {city}
