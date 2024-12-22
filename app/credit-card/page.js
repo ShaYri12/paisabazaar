@@ -64,14 +64,14 @@ export default function CreditCard() {
                       />
                     </div>
                   </div>
-                  <span className="text-[13px] text-gray-700">{feature}</span>
+                  <span className="text-[14px] text-gray-700">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
           <div className="relative flex items-center justify-center mt-4">
             <Image
-              src="/assets/cards2.png"
+              src="/assets/cards.png"
               alt="Credit Cards Stack"
               width={310}
               height={310}
@@ -91,7 +91,7 @@ export default function CreditCard() {
           </Link>
         </div>
         <div className="md:p-12 p-5">
-          <div className="max-w-[420px] mx-auto">
+          <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>
                 {/* Search Bar */}
@@ -116,12 +116,18 @@ export default function CreditCard() {
 
                   {/* Features */}
                   <div className="mb-[25px]">
-                    <div className="flex items-center gap-3 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]">
-                      <BsCheckCircle size={16} className="text-green-600" />
+                    <div className="flex items-center gap-2 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]">
+                      <BsCheckCircle
+                        size={16}
+                        className="min-w-[16px] text-green-600"
+                      />
                       <span>Pre-Approved Offers</span>
                     </div>
-                    <div className="flex items-center gap-3 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]">
-                      <BsCheckCircle size={16} className="text-green-600" />
+                    <div className="flex items-center gap-2 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]">
+                      <BsCheckCircle
+                        size={16}
+                        className="min-w-[16px] text-green-600"
+                      />
                       <span>Lifetime Free Cards</span>
                     </div>
                   </div>

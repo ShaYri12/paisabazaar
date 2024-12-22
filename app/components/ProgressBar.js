@@ -22,7 +22,7 @@ export function ProgressBar({ currentStep, totalSteps, handleBack }) {
           <path d="m15 18-6-6 6-6" />
         </svg>
       </button>
-      <div className="text-xs font-[600] text-green-800">
+      <div className="text-[13px] font-[600] text-green-800">
         Steps {currentStep}/{totalSteps}
       </div>
     </div>

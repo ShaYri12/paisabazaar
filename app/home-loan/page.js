@@ -1,16 +1,13 @@
 "use client";
-
-import { useState } from "react";
 import Image from "next/image";
+import { BsCheckCircle, BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
-import { IoMdCheckmark } from "react-icons/io";
-import OTPModal from "../components/OTPModal";
 import MobileInput from "../components/MobileInput";
-import { BsCheckCircle, BsSearch, BsArrowRight } from "react-icons/bs";
-import ApplicationForm from "./ApplicationForm";
-import Info from "./Info";
+import { useState } from "react";
+import OTPModal from "../components/OTPModal";
+import { ApplicationForm } from "./ApplicationForm";
 
-export default function PersonalLoan() {
+export default function HomeLoan() {
   const [showOtpModal, setShowOtpModal] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [isVerified, setIsVerified] = useState(false);
@@ -28,16 +25,9 @@ export default function PersonalLoan() {
   };
 
   const features = [
-    "Compare & Choose the Best Offer",
-    "Check Loan Amount Eligibility",
-    "Know your Approval Chances",
-  ];
-
-  const features2 = [
-    "Hand-picked offers from 30+ lenders",
-    "Money in mins via Pre-Approved loans",
-    "Instant sanction and disbursal",
-    "Contact-less processes",
+    "Compare Offers from Top Banks",
+    "Best Interest Rate",
+    "Loan Tenure up to 30 Years",
   ];
 
   return (
@@ -57,32 +47,22 @@ export default function PersonalLoan() {
           <Image src="/logo.png" alt="logo" width={75} height={32} />
         </Link>
         <div className="max-w-[390px] mx-auto">
-          <div className="">
+          <div className="mb-4">
             <h1 className="text-[24px] font-bold text-green-800 py-[20px]">
-              Personal Loan
+              Home Loan
             </h1>
-            <div className="space-y-[30px]">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <div className="w-[24px] h-[24px] min-w-[24px] min-h-[24px] rounded-full bg-white/40 flex items-center justify-center">
-                    <div className="w-[16px] h-[16px] rounded-full bg-white flex items-center justify-center">
-                      <IoMdCheckmark
-                        size={15}
-                        className="text-green-600 flex-shrink-0"
-                      />
-                    </div>
-                  </div>
-                  <span className="text-[14px] text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
+            <p className="text-[14px] font-[400] text-gray-700">
+              Owning a house and calling it your home is a dream many of us
+              carry in our hearts. Paisabazaar helps you achieve that dream by
+              offering the best deal.
+            </p>
           </div>
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center mt-4">
             <Image
-              src="/assets/personal-loan.svg"
-              alt="personal-loan"
-              width={309}
-              height={359}
+              src="/assets/home-loan.svg"
+              alt="Home Loan"
+              width={310}
+              height={310}
             />
           </div>
         </div>
@@ -99,33 +79,32 @@ export default function PersonalLoan() {
           </Link>
         </div>
         <div className="md:p-12 p-5">
-          <div className="max-w-[480px] mx-auto mt-[15px]">
+          <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>
                 {/* Main Content */}
                 <div className="mt-[15px]">
                   <h2 className="text-[20px] text-greenish mb-[8px]">
                     <span className="font-[500]">Unlock Best</span>{" "}
-                    <span className="font-bold">Personal Loan</span>{" "}
-                    <span className="font-[500]">
-                      Offers suitable for your needs from
-                    </span>{" "}
-                    <span className="font-bold">30+ Lenders</span>
+                    <span className="font-bold">Home Loan</span>{" "}
+                    <span className="font-[500]">Offers</span>
+                    <br />
+                    <span className="font-[500]">from</span>{" "}
+                    <span className="font-bold">20+ Lenders</span>
                   </h2>
-                  <div className="w-[50px] h-[2px] flex bg-green-500 mt-1 mb-4"></div>
 
                   {/* Features */}
-                  <div className="mb-[25px]">
-                    {features2.map((feature2, index) => (
+                  <div className="mb-[25px] space-y-[16px] mt-[16px]">
+                    {features.map((feature, index) => (
                       <div
                         key={index}
-                        className="flex items-center gap-2 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]"
+                        className="flex items-center gap-2 text-[12px] font-[500] text-gray-600"
                       >
                         <BsCheckCircle
                           size={16}
                           className="min-w-[16px] text-green-600"
                         />
-                        <span>{feature2}</span>
+                        <span>{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -150,7 +129,7 @@ export default function PersonalLoan() {
                   />
 
                   {/* Terms */}
-                  <p className="text-center text-[10px] md:text-xs text-gray-500 my-[10px]">
+                  <p className="text-center text-[12px] md:text-sm text-gray-500 my-[10px]">
                     By clicking on proceed, you have read and agree to the{" "}
                     <a href="#" className="text-green-700">
                       Credit Report Terms of Use
@@ -206,8 +185,6 @@ export default function PersonalLoan() {
                       </a>
                     </div>
                   </div>
-
-                  <Info />
                 </div>
               </>
             ) : (

@@ -117,7 +117,7 @@ export default function OTPModal({ isOpen, onClose, phoneNumber, onVerify }) {
         <button
           onClick={handleVerify}
           disabled={otp.some((digit) => !digit)}
-          className="w-full rounded-lg bg-greenish py-3 text-white hover:bg-blue-700 disabled:bg-greenish/50"
+          className="w-full rounded-lg bg-greenish py-3 text-white hover:bg-green-600 transition-colors disabled:bg-greenish/50"
         >
           Verify & Login
         </button>

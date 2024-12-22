@@ -31,7 +31,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/business-loan.png",
     imageAlt: "business-loan",
-    link: "/credit-card",
+    link: "/business-loan",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/home-loan.png",
     imageAlt: "home-loan",
-    link: "/credit-card",
+    link: "/home-loan",
   },
   {
     id: 5,
