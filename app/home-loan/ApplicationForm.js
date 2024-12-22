@@ -8,6 +8,7 @@ export function ApplicationForm() {
     homeLoanAmount: "",
     city: "",
     days: "",
+    employmentType: "",
   });
   const [showAll, setShowAll] = useState(false);
 
@@ -23,6 +24,10 @@ export function ApplicationForm() {
 
   const handleDaysSelection = (value) => {
     setFormData({ ...formData, days: value });
+    setCurrentStep((prev) => Math.min(prev + 1, 5));
+  };
+
+  const handleEmploymentTypeSelection = (type) => {
     setCurrentStep((prev) => Math.min(prev + 1, 5));
   };
 
@@ -63,6 +68,24 @@ export function ApplicationForm() {
     { value: "31-90", label: "31-90 Days" },
     { value: "91-180", label: "91-180 Days" },
     { value: "180+", label: "180+ Days" },
+  ];
+
+  const employmentOptions = [
+    {
+      label: "Salaried",
+      description: "Receive fixed amount of income every month",
+      value: "salaried",
+    },
+    {
+      label: "Self-Employed Business",
+      description: "Runs a business",
+      value: "business-owner",
+    },
+    {
+      label: "Self-Employed Professional",
+      description: "Engage in a professiona (e.g. Doctor, C.A., Lawyer, etc)",
+      value: "self-employed",
+    },
   ];
 
   const handleBack = () => {
@@ -257,58 +280,37 @@ export function ApplicationForm() {
 
       {currentStep === 4 && (
         <div className="">
-          <h2 className="text-2xl font-bold text-greenish">
-            Select your desired <br /> Home Loan Amount
-          </h2>
+          <h2 className="text-2xl font-bold text-greenish">Employment Type</h2>
           <div className="w-[50px] h-[2px] bg-green-500 mt-1"></div>
           <div className="space-y-4 mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-6 gap-y-4 gap-x-4">
-              {loanRanges.map((range) => (
-                <label
-                  key={range.value}
-                  htmlFor={range.value}
-                  className="cursor-pointer"
-                >
-                  <div
-                    className={`
-                relative overflow-hidden rounded-lg border border-gray-200
-                transition-colors hover:bg-greenish/[5%]
-                ${
-                  formData.homeLoanAmount === range.value
-                    ? "border-greenish bg-greenish/[6%]"
-                    : ""
-                }
-              `}
-                  >
-                    <div className="flex items-center justify-between p-4">
-                      <span
-                        className={`text-[14px] font-[500] ${
-                          formData.homeLoanAmount === range.value
-                            ? "text-greenish"
-                            : "text-greenish"
-                        }`}
-                      >
-                        {range.label}
-                      </span>
-                      <input
-                        type="radio"
-                        id={range.value}
-                        name="loanRange"
-                        value={range.value}
-                        checked={formData.homeLoanAmount === range.value}
-                        onChange={(e) => handleCitySelection(e.target.value)}
-                        className="h-4 w-4 cursor-pointer accent-green-600 border-greenish text-greenish focus:ring-greenish"
-                      />
+            {employmentOptions.map((option) => (
+              <label
+                key={option.value}
+                className={`block p-4 rounded-lg border-2 cursor-pointer ${
+                  formData.employmentType === option.value
+                    ? "border-greenish bg-greenish/[5%]"
+                    : "border-gray-200 hover:border-greenish/40"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="font-medium text-sm text-gray-900 mb-[4px]">
+                      {option.label}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      {option.description}
                     </div>
                   </div>
-                </label>
-              ))}
-            </div>
-
-            <p className="mt-6 text-[10px] text-gray-500">
-              I authorize Paisabazaar to share details of my Home Loan enquiry
-              with Paisabazaar affiliated banks and lending partners
-            </p>
+                  <input
+                    type="radio"
+                    name="employmentType"
+                    checked={formData.employmentType === option.value}
+                    onChange={() => handleEmploymentTypeSelection(option.value)}
+                    className="h-4 w-4 accent-green-600 hover:accent-green-600 text-greenish focus:ring-greenish/[5%]"
+                  />
+                </div>
+              </label>
+            ))}
           </div>
         </div>
       )}
