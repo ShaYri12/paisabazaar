@@ -14,21 +14,21 @@ export function ApplicationForm() {
 
   const handleLoanChange = (value) => {
     setFormData({ ...formData, homeLoanAmount: value });
-    setCurrentStep((prev) => Math.min(prev + 1, 5));
+    setCurrentStep((prev) => Math.min(prev + 1, 4));
   };
 
   const handleCitySelection = (value) => {
     setFormData({ ...formData, city: value });
-    setCurrentStep((prev) => Math.min(prev + 1, 5));
+    setCurrentStep((prev) => Math.min(prev + 1, 4));
   };
 
   const handleDaysSelection = (value) => {
     setFormData({ ...formData, days: value });
-    setCurrentStep((prev) => Math.min(prev + 1, 5));
+    setCurrentStep((prev) => Math.min(prev + 1, 4));
   };
 
   const handleEmploymentTypeSelection = (type) => {
-    setCurrentStep((prev) => Math.min(prev + 1, 5));
+    setFormData({ ...formData, employmentType: type });
   };
 
   const loanRanges = [
@@ -103,7 +103,7 @@ export function ApplicationForm() {
     <div className="w-full">
       <ProgressBar
         currentStep={currentStep}
-        totalSteps={5}
+        totalSteps={4}
         handleBack={handleBack}
       />
 

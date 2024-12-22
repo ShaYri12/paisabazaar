@@ -1,12 +1,45 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IoIosArrowForward } from "react-icons/io";
 
 const sliderData = [
+  {
+    title: (
+      <h1 className="text-[13px] lg:text-[28px] font-[700] text-greenish lg:leading-[44px] lg:mb-[15px]">
+        Your Credit Score & Report <br className="sm:flex hidden" />{" "}
+        <span className="line-through">worth ₹1,200</span>{" "}
+        <span className="text-greenish">Absolutely FREE</span>
+      </h1>
+    ),
+    description: (
+      <p className="mb-[10px] lg:mb-[25px] text-[10px] lg:text-base text-[#052f5] opacity-[0.6]">
+        Your credit score is more than just a number. It's the key to help you
+        unlock the doors to the best loans & credit card offers available.
+      </p>
+    ),
+    cta: "Get Free Credit Report",
+    image: "/assets/slider1.png",
+  },
+  {
+    title: (
+      <h1 className="text-[13px] lg:text-[28px] font-[700] text-greenish lg:leading-[44px] lg:mb-[15px]">
+        Proccessing fee @0 <br className="sm:flex hidden" />{" "}
+        <span className="line-through"> processing fee</span>
+        <span className="text-greenish"> Absolutely FREE</span>
+      </h1>
+    ),
+    description: (
+      <p className="mb-[10px] lg:mb-[25px] text-[10px] lg:text-base text-[#052f5] opacity-[0.6]">
+        Your credit score is more than just a number. It's the key to help you
+        unlock the doors to the best loans & credit card offers available.
+      </p>
+    ),
+    cta: "Apply Now",
+    image: "/assets/slider1.png",
+  },
   {
     title: (
       <h1 className="text-[13px] lg:text-[28px] font-[700] text-greenish lg:leading-[44px] lg:mb-[15px]">
@@ -57,7 +90,7 @@ export default function Hero() {
     beforeChange: (current, next) => setCurrentSlide(next),
     customPaging: (i) => (
       <div
-        className={`w-[6px] h-[6px] rounded-full ${
+        className={`w-[6px] h-[6px] min-w-[6px] min-h-[6px] rounded-full ${
           i === currentSlide ? "bg-greenish" : "bg-gray-300"
         }`}
       />

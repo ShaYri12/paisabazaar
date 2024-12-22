@@ -82,7 +82,7 @@ export default function Navbar() {
                 placeholder="Search"
                 className="sm:block hidden md:w-[270px] w-[180px] md:h-10 h-[32px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm"
               />
-              <button className="rounded-lg bg-greenish/10 md:px-[24px] px-[20px] py-2 py-1 md:text-base text-[14px] text-greenish hover:bg-greenish/20 transition-colors">
+              <button className="rounded-lg bg-greenish/10 md:px-[24px] px-[20px] py-2 py-1 md:text-base text-[14px] text-greenish hover:bg-greenish/[15%] transition-colors">
                 Login
               </button>
               <button className="md:hidden z-50" onClick={toggleMenu}>
@@ -147,29 +147,30 @@ export default function Navbar() {
               placeholder="Search"
               className="sm:hidden w-full md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2"
             />
-            <div className="space-y-1">
-              {Object.entries(allProductsMenu).map(([category, items]) => (
-                <div key={category} className="border-b border-gray-200 py-4">
-                  <button className="flex items-center justify-between w-full">
-                    <span className="text-[#5AA74D] font-semibold text-sm">
-                      {category}
-                    </span>
-                  </button>
-                  <ul className="mt-2 ">
-                    {items.map((item) => (
-                      <li key={item.name}>
-                        <Link
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:text-[#0066FF]"
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            {Object.entries(allProductsMenu).map(([category, items]) => (
+              <div
+                key={category}
+                className="border-b border-gray-200 py-4 space-y-2"
+              >
+                <button className="flex items-center justify-between w-full">
+                  <span className="text-[#5AA74D] font-semibold text-sm">
+                    {category}
+                  </span>
+                </button>
+                <ul className="space-y-2">
+                  {items.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="block px-4 text-sm text-gray-600 hover:text-greenish"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>

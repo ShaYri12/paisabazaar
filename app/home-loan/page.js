@@ -78,7 +78,7 @@ export default function HomeLoan() {
             <Image src="/logo.png" alt="logo" width={75} height={32} />
           </Link>
         </div>
-        <div className="md:p-12 p-5">
+        <div className="md:p-12 p-5 overflow-y-auto min-h-screen">
           <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>

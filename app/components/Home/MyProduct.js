@@ -88,6 +88,15 @@ const products = [
     imageAlt: "life-insurance",
     link: "/credit-card",
   },
+  {
+    id: 9,
+    title: "Investments",
+    description: "Invest & secure your future",
+    buttonText: "Starting from ₹499/month*",
+    imageSrc: "/assets/investment-plans.png",
+    imageAlt: "life-insurance",
+    link: "/credit-card",
+  },
 ];
 
 const MyProduct = () => {
@@ -106,7 +115,7 @@ const MyProduct = () => {
           >
             <div className="flex lg:flex-row flex-col-reverse lg:items-start items-center lg:justify-between justify-center lg:gap-1 gap-2">
               <div className="flex flex-col lg:justify-start justify-center lg:items-start items-center">
-                <h2 className="text-[10px] lg:text-sm lg:font-[600] font-[400] mb-2 uppercase text-black lg:text-left- text-center">
+                <h2 className="text-[10px] lg:text-sm lg:font-[600] font-[400] mb-2 uppercase text-black lg:text-left text-center">
                   {product.title}
                 </h2>
                 <p className="lg:block hidden text-[#69829f] text-[12px] mb-[15px] w-[80%]">
