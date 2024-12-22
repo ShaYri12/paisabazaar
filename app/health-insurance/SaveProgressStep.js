@@ -80,7 +80,7 @@ export default function SaveProgressForm({ handleContinue }) {
               value={formData.fullName}
               onChange={handleInputChange}
               placeholder=" "
-              className="peer w-full p-4 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
+              className="peer w-full p-4 border border-gray-400/50 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
             />
             <label
               onClick={() => handleLabelClick(fullNameRef)}
@@ -100,7 +100,7 @@ export default function SaveProgressForm({ handleContinue }) {
                   name="countryCode"
                   value={formData.countryCode}
                   onChange={handleInputChange}
-                  className="h-[56px] appearance-none border rounded-lg px-3 pr-8 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="h-[56px] appearance-none border border-gray-400/50 rounded-lg px-3 pr-8 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   {countryCodes.map((country) => (
                     <option key={country.code} value={country.code}>
@@ -118,7 +118,7 @@ export default function SaveProgressForm({ handleContinue }) {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder=" "
-                  className="peer w-full p-4 border rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
+                  className="peer w-full p-4 border border-gray-400/50 rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
                 />
                 <label
                   onClick={() => handleLabelClick(phoneRef)}
@@ -144,7 +144,7 @@ export default function SaveProgressForm({ handleContinue }) {
               value={formData.email}
               onChange={handleInputChange}
               placeholder=" "
-              className="peer w-full p-4 border rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
+              className="peer w-full p-4 border border-gray-400/50 rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
             />
             <label
               onClick={() => handleLabelClick(emailRef)}

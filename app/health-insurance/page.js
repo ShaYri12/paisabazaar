@@ -84,7 +84,7 @@ export default function InsurancePlan() {
   return (
     <div>
       <Navbar />
-      <div className="relative min-h-screen bg-gray-50 py-8 px-4 mt-[72px] sm:px-6 lg:px-8 flex items-center justify-center w-full">
+      <div className="relative min-h-screen py-8 px-4 mt-[72px] sm:px-6 lg:px-8 flex items-center justify-center w-full">
         <ProgressBar progress={(currentStep - 1) * 25} />
 
         <div className="w-full max-w-4xl mx-auto relative mt-[20px]">
@@ -92,7 +92,7 @@ export default function InsurancePlan() {
           {currentStep > 1 && (
             <button
               onClick={handleBack}
-              className="absolute left-0 top-1/2 -translate-y-1/2 mb-8 w-12 h-12 flex items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg"
+              className="md:block hidden absolute left-0 top-1/2 -translate-y-1/2 mb-8 w-12 h-12 flex items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg"
             >
               <IoChevronBack className="w-6 h-6 text-greenish" />
             </button>
@@ -176,12 +176,21 @@ export default function InsurancePlan() {
                 </button>
               </div>
 
-              <button
-                onClick={handleContinue}
-                className="flex items-center justify-center shadow-lg mt-8 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
-              >
-                Continue <IoIosArrowForward />
-              </button>
+              <div className="flex  gap-2 mt-8">
+                {" "}
+                <button
+                  onClick={handleBack}
+                  className="md:hidden w-12 h-12 flex items-center justify-center rounded-lg hover:bg-greenish/[3%] transition-colors shadow-lg"
+                >
+                  <IoChevronBack className="w-6 h-6 text-greenish" />
+                </button>
+                <button
+                  onClick={handleContinue}
+                  className="flex items-center justify-center shadow-lg gap-1 w-full md:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
+                >
+                  Continue <IoIosArrowForward />
+                </button>
+              </div>
 
               <p className="text-sm text-gray-500 text-center mt-4">
                 By clicking on "Continue", you agree to our{" "}
@@ -201,17 +210,29 @@ export default function InsurancePlan() {
           )}
 
           {currentStep === 2 && (
-            <AgeStep members={members} handleContinue={handleContinue} />
+            <AgeStep
+              members={members}
+              handleContinue={handleContinue}
+              handleBack={handleBack}
+            />
           )}
 
-          {currentStep === 3 && <CityStep handleContinue={handleContinue} />}
+          {currentStep === 3 && (
+            <CityStep handleContinue={handleContinue} handleBack={handleBack} />
+          )}
 
           {currentStep === 4 && (
-            <SaveProgressStep handleContinue={handleContinue} />
+            <SaveProgressStep
+              handleContinue={handleContinue}
+              handleBack={handleBack}
+            />
           )}
 
           {currentStep === 5 && (
-            <MedicalHistoryStep handleViewPlan={handleViewPlan} />
+            <MedicalHistoryStep
+              handleViewPlan={handleViewPlan}
+              handleBack={handleBack}
+            />
           )}
         </div>
       </div>

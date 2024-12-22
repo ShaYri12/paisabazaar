@@ -34,7 +34,7 @@ export default function AgeStep({ members, handleContinue }) {
                     </svg>
                   </div>
                   <div className="relative flex-1">
-                    <select className="w-full px-[15px] py-[8px] pe-12 appearance-none border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 cursor-pointer">
+                    <select className="w-full px-[15px] py-[8px] pe-12 appearance-none border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 cursor-pointer">
                       <option>Select Age</option>
                       {[...Array(81)].map((_, i) => (
                         <option key={i}>{i + 20} yr</option>

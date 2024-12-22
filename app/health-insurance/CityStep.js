@@ -42,7 +42,7 @@ export default function CityStep({ handleContinue }) {
               type="text"
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="w-full px-[15px] md:py-[12px] py-[8px] pe-12 border border-gray-100 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="w-full px-[15px] md:py-[12px] py-[8px] pe-12 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
               placeholder="Enter your city"
             />
             {selectedCity && (

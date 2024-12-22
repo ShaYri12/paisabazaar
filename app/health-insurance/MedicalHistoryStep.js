@@ -46,7 +46,7 @@ export default function MedicalHistory({ handleViewPlan }) {
             <div
               key={condition}
               onClick={() => handleConditionToggle(condition)}
-              className="relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+              className="relative border border-gray-400/50 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors"
             >
               <div className="flex items-center gap-3">
                 <div
@@ -85,7 +85,7 @@ export default function MedicalHistory({ handleViewPlan }) {
           <button
             onClick={() => setWhatsappUpdates(!whatsappUpdates)}
             className={`relative inline-flex h-[20px] w-9 items-center rounded-full transition-colors duration-200 ease-in-out focus:outline-none
-                ${whatsappUpdates ? "bg-green-500" : "bg-gray-200"}`}
+                ${whatsappUpdates ? "bg-greenish" : "bg-gray-200"}`}
           >
             <span
               className={`inline-block h-[15px] w-[15px] transform rounded-full bg-white transition duration-200 ease-in-out
