@@ -77,7 +77,7 @@ const products = [
     buttonText: "Starting @ ₹200/month*",
     imageSrc: "/assets/health-insurance.png",
     imageAlt: "health-insurance",
-    link: "/credit-card",
+    link: "/health-insurance",
   },
   {
     id: 9,
