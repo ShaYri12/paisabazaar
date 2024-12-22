@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoChevronBack, IoClose } from "react-icons/io5";
 
@@ -25,35 +25,44 @@ export default function CityStep({ handleContinue, handleBack }) {
   const clearSelection = () => {
     setSelectedCity("");
   };
+  const fullNameRef = useRef(null);
+
+  const handleLabelClick = (inputRef) => {
+    inputRef.current.focus();
+  };
 
   return (
     <div className="w-full">
-      <h1 className="text-[32px] font-[500] text-gray-900 mb-[24px] text-center">
+      <h1 className="text-[32px] font-[600] text-gray-900 mb-[24px] text-center">
         Select age of covered member(s)
       </h1>
       <div className="max-w-md mx-auto">
         {/* City Input */}
-        <div className="relative mb-8">
-          <label className="block text-sm text-gray-600 mb-2">
+        <div className="relative mb-6">
+          <input
+            type="text"
+            ref={fullNameRef}
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+            placeholder=" "
+            className="peer w-full px-[15px] py-[12px] pe-12 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 placeholder-transparent"
+          />
+          <label
+            onClick={() => handleLabelClick(fullNameRef)}
+            className="absolute left-2 bg-white px-1 text-xs text-gray-600 transition-all cursor-text
+      -top-2.5 peer-placeholder-shown:top-[13px] peer-placeholder-shown:left-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base 
+      peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-xs peer-focus:text-greenish"
+          >
             Enter City or PIN Code
           </label>
-          <div className="relative">
-            <input
-              type="text"
-              value={selectedCity}
-              onChange={(e) => setSelectedCity(e.target.value)}
-              className="w-full px-[15px] md:py-[12px] py-[8px] pe-12 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
-              placeholder="Enter your city"
-            />
-            {selectedCity && (
-              <button
-                onClick={clearSelection}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              >
-                <IoClose className="w-5 h-5" />
-              </button>
-            )}
-          </div>
+          {selectedCity && (
+            <button
+              onClick={clearSelection}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            >
+              <IoClose className="w-5 h-5" />
+            </button>
+          )}
         </div>
 
         {/* Popular Cities */}

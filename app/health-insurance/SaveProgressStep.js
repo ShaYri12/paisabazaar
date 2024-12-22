@@ -5,7 +5,7 @@ import { IoChevronDown, IoCheckmark, IoChevronBack } from "react-icons/io5";
 export default function SaveProgressForm({ handleContinue, handleBack }) {
   const [formData, setFormData] = useState({
     fullName: "",
-    countryCode: "+33",
+    countryCode: "+91",
     phone: "",
     email: "",
   });
@@ -20,10 +20,24 @@ export default function SaveProgressForm({ handleContinue, handleBack }) {
   const emailRef = useRef(null);
 
   const countryCodes = [
+    { code: "+91", label: "India" },
     { code: "+33", label: "France" },
     { code: "+61", label: "Australia" },
     { code: "+1", label: "USA" },
-    // Add more country codes as needed
+    { code: "+44", label: "United Kingdom" },
+    { code: "+49", label: "Germany" },
+    { code: "+81", label: "Japan" },
+    { code: "+86", label: "China" },
+    { code: "+7", label: "Russia" },
+    { code: "+39", label: "Italy" },
+    { code: "+34", label: "Spain" },
+    { code: "+55", label: "Brazil" },
+    { code: "+27", label: "South Africa" },
+    { code: "+82", label: "South Korea" },
+    { code: "+47", label: "Norway" },
+    { code: "+31", label: "Netherlands" },
+    { code: "+46", label: "Sweden" },
+    { code: "+63", label: "Philippines" },
   ];
 
   const validateEmail = (email) => {
@@ -62,10 +76,10 @@ export default function SaveProgressForm({ handleContinue, handleBack }) {
 
   return (
     <div className="w-full">
-      <h1 className="text-2xl md:text-3xl text-center font-semibold text-[#1e2c4f] mb-8">
+      <h1 className="text-[32px] font-[600] text-gray-900 mb-[14px] text-center">
         Save your progress
       </h1>
-      <p className="text-gray-600 mb-8 text-center">
+      <p className="text-gray-600 mb-[24px] text-center">
         Get to plans directly next time you visit us
       </p>
       <div className="max-w-md mx-auto">
@@ -80,13 +94,13 @@ export default function SaveProgressForm({ handleContinue, handleBack }) {
               value={formData.fullName}
               onChange={handleInputChange}
               placeholder=" "
-              className="peer w-full p-4 border border-gray-400/50 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
+              className="peer w-full px-[15px] py-[12px] pe-12 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 placeholder-transparent"
             />
             <label
               onClick={() => handleLabelClick(fullNameRef)}
-              className="absolute left-2 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all cursor-text
-                peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:left-4
-                peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-sm peer-focus:text-gray-600"
+              className="absolute left-2 bg-white px-1 text-xs text-gray-600 transition-all cursor-text
+      -top-2.5 peer-placeholder-shown:top-[13px] peer-placeholder-shown:left-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base 
+      peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-xs peer-focus:text-greenish"
             >
               Your full name
             </label>
@@ -100,7 +114,7 @@ export default function SaveProgressForm({ handleContinue, handleBack }) {
                   name="countryCode"
                   value={formData.countryCode}
                   onChange={handleInputChange}
-                  className="h-[56px] appearance-none border border-gray-400/50 rounded-lg px-3 pr-8 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="appearance-none cursor-pointer w-full px-[15px] py-[12px] pe-8 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 placeholder-transparent"
                 >
                   {countryCodes.map((country) => (
                     <option key={country.code} value={country.code}>
@@ -118,13 +132,13 @@ export default function SaveProgressForm({ handleContinue, handleBack }) {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder=" "
-                  className="peer w-full p-4 border border-gray-400/50 rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
+                  className="peer w-full px-[15px] py-[12px] pe-12 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 placeholder-transparent"
                 />
                 <label
                   onClick={() => handleLabelClick(phoneRef)}
-                  className="absolute left-2 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all cursor-text
-                    peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:left-4
-                    peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-sm peer-focus:text-gray-600"
+                  className="absolute left-2 bg-white px-1 text-xs text-gray-600 transition-all cursor-text
+      -top-2.5 peer-placeholder-shown:top-[13px] peer-placeholder-shown:left-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base 
+      peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-xs peer-focus:text-greenish"
                 >
                   Enter mobile number
                 </label>
@@ -144,13 +158,13 @@ export default function SaveProgressForm({ handleContinue, handleBack }) {
               value={formData.email}
               onChange={handleInputChange}
               placeholder=" "
-              className="peer w-full p-4 border border-gray-400/50 rounded-lg pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
+              className="peer w-full px-[15px] py-[12px] pe-12 border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 placeholder-transparent"
             />
             <label
               onClick={() => handleLabelClick(emailRef)}
-              className="absolute left-2 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all cursor-text
-                peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:left-4
-                peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-sm peer-focus:text-gray-600"
+              className="absolute left-2 bg-white px-1 text-xs text-gray-600 transition-all cursor-text
+      -top-2.5 peer-placeholder-shown:top-[13px] peer-placeholder-shown:left-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base 
+      peer-focus:-top-2.5 peer-focus:left-2 peer-focus:text-xs peer-focus:text-greenish"
             >
               Your email
             </label>

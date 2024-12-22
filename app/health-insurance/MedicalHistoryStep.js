@@ -33,21 +33,25 @@ export default function MedicalHistory({ handleViewPlan, handleBack }) {
 
   return (
     <div className="w-full">
-      <h1 className="text-2xl md:text-3xl text-center font-semibold text-[#1e2c4f] mb-8">
+      <h1 className="text-[32px] font-[600] text-gray-900 mb-[14px] text-center">
         Medical history
       </h1>
-      <p className="text-gray-600 mb-8 text-center">
+      <p className="text-gray-600 mb-[24px] text-center">
         Do any member(s) have any existing illnesses for which they take regular
         medication?
       </p>
       <div className="max-w-md mx-auto">
         {/* Medical Conditions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {medicalConditions.map((condition) => (
             <div
               key={condition}
               onClick={() => handleConditionToggle(condition)}
-              className="relative border border-gray-400/50 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+              className={`relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors ${
+                selectedConditions.includes(condition)
+                  ? "border-greenish bg-greenish/[4%]"
+                  : "border-gray-300"
+              }`}
             >
               <div className="flex items-center gap-3">
                 <div
@@ -81,8 +85,10 @@ export default function MedicalHistory({ handleViewPlan, handleBack }) {
         </div>
 
         {/* Custom WhatsApp Updates Toggle */}
-        <div className="flex items-center justify-between mb-8">
-          <span className="text-[#1e2c4f]">Get Updates on WhatsApp</span>
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-green-800 text-sm">
+            Get Updates on WhatsApp
+          </span>
           <button
             onClick={() => setWhatsappUpdates(!whatsappUpdates)}
             className={`relative inline-flex h-[20px] w-9 items-center rounded-full transition-colors duration-200 ease-in-out focus:outline-none
@@ -109,7 +115,7 @@ export default function MedicalHistory({ handleViewPlan, handleBack }) {
             onClick={handleViewPlan}
             className="flex items-center justify-center shadow-lg gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors block"
           >
-            View plans
+            View Plans
           </button>
         </div>
       </div>

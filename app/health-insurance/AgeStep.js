@@ -1,11 +1,43 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoChevronBack, IoChevronDown } from "react-icons/io5";
+import { FaUser, FaUserTie, FaFemale, FaChild } from "react-icons/fa";
 
 export default function AgeStep({ members, handleContinue, handleBack }) {
+  const getIcon = (memberId) => {
+    switch (memberId) {
+      case "self":
+        return FaUser;
+      case "wife":
+      case "mother":
+      case "grandmother":
+      case "motherInLaw":
+        return FaFemale;
+      case "son":
+      case "daughter":
+        return FaChild;
+      case "father":
+      case "grandfather":
+      case "fatherInLaw":
+        return FaUserTie;
+      default:
+        return FaUser;
+    }
+  };
+
+  const getLabel = (memberId, index) => {
+    const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+    if (memberId === "self") {
+      return `Your Age`;
+    } else if (memberId === "son" || memberId === "daughter") {
+      return `${capitalize(memberId)} ${index + 1}'s Age`;
+    }
+    return `${capitalize(memberId)}'s Age`;
+  };
+
   return (
     <div className="w-full">
-      <h1 className="text-[32px] font-[500] text-gray-900 mb-[24px] text-center">
+      <h1 className="text-[32px] font-[600] text-gray-900 mb-[24px] text-center">
         Select age of covered member(s)
       </h1>
       <div className="max-w-md mx-auto">
@@ -15,36 +47,32 @@ export default function AgeStep({ members, handleContinue, handleBack }) {
             if (!value || (typeof value === "object" && !value.selected))
               return null;
 
-            return (
-              <div key={id} className="relative">
-                <label className="block text-sm text-gray-600 mb-1">
-                  {id.charAt(0).toUpperCase() + id.slice(1)} Age
-                </label>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
-                        fill="#4B84EA"
-                      />
-                      <path
-                        d="M12 14c-6.1 0-11 4-11 9h22c0-5-4.9-9-11-9Z"
-                        fill="#4B84EA"
-                      />
-                    </svg>
-                  </div>
-                  <div className="relative flex-1">
-                    <select className="w-full px-[15px] py-[8px] pe-12 appearance-none border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 cursor-pointer">
-                      <option>Select Age</option>
-                      {[...Array(81)].map((_, i) => (
-                        <option key={i}>{i + 20} yr</option>
-                      ))}
-                    </select>
-                    <IoChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            const quantity = typeof value === "object" ? value.quantity : 1;
+            const Icon = getIcon(id);
+
+            return Array(quantity)
+              .fill()
+              .map((_, index) => (
+                <div key={`${id}-${index}`} className="relative">
+                  <label className="block text-sm text-gray-600 mb-1">
+                    {getLabel(id, index)}
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-greenish/10 flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-greenish" />
+                    </div>
+                    <div className="relative flex-1">
+                      <select className="w-full px-[15px] py-[8px] pe-12 appearance-none border border-gray-400/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 cursor-pointer">
+                        <option>Select Age</option>
+                        {[...Array(100)].map((_, i) => (
+                          <option key={i}>{i + 1} yr</option>
+                        ))}
+                      </select>
+                      <IoChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
+              ));
           })}
         </div>
 

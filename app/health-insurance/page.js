@@ -100,7 +100,7 @@ export default function InsurancePlan() {
           {currentStep === 1 && (
             <>
               <div className="text-center">
-                <h1 className="text-[32px] font-[500] text-gray-900 mb-[16px]">
+                <h1 className="text-[32px] font-[600] text-gray-900 mb-[16px]">
                   Find top plans for you with up to{" "}
                   <span className="text-greenish font-bold">25% discount</span>
                   <span className="text-[20px] text-gray-700 align-top">
@@ -109,7 +109,7 @@ export default function InsurancePlan() {
                 </h1>
               </div>
 
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-center gap-2">
                 <button
                   onClick={() => setSelectedGender("male")}
                   className={`px-6 py-2 rounded-md shadow-md ${
