@@ -142,10 +142,10 @@ export default function InsurancePlan() {
       </div>
 
       {/* Right Section */}
-      <div className="relative lg:w-[57%] md:w-[53%] w-full bg-white overflow-y-auto md:h-screen py-8 pt-[120px] px-4 sm:px-6 lg:px-8 flex items-center justify-center w-full">
+      <div className="relative lg:w-[57%] md:w-[53%] w-full bg-white overflow-y-auto md:h-screen py-8  px-4 sm:px-6 lg:px-8 flex items-center justify-center w-full">
         <ProgressBar progress={(currentStep - 1) * 25} />
 
-        <div className="max-w-4xl mx-auto md:mt-[20px] mt-[40px] w-full">
+        <div className="max-w-4xl mx-auto md:mt-[20px] mt-[40px] w-full xl:mt-0 mt-8 md:mt-[100px]">
           {/* Back Button */}
           {currentStep > 1 && (
             <button
@@ -158,7 +158,7 @@ export default function InsurancePlan() {
           {currentStep === 1 && (
             <>
               <div className="text-center">
-                <h1 className="text-[32px] font-[600] text-gray-900 mb-[16px]">
+                <h1 className="xl:text-[32px] md:text-[28px] text-[24px] font-[600] text-gray-900 mb-[24px] text-center">
                   Find top plans for you with up to{" "}
                   <span className="text-greenish font-bold">25% discount</span>
                   <span className="text-[20px] text-gray-700 align-top">
