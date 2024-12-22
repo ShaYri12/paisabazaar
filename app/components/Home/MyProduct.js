@@ -50,7 +50,7 @@ const products = [
     buttonText: "Check Eligibility",
     imageSrc: "/assets/loan-against-property.png",
     imageAlt: "loan-against-property",
-    link: "/credit-card",
+    link: "/loan-against-property",
   },
   {
     id: 6,

@@ -6,7 +6,7 @@ import { IoMdCheckmark } from "react-icons/io";
 import MobileInput from "../components/MobileInput";
 import { useState } from "react";
 import OTPModal from "../components/OTPModal";
-import { ApplicationForm } from "./ApplicationForm";
+import { ApplicationForm } from "../credit-card/ApplicationForm";
 
 export default function CreditCard() {
   const [showOtpModal, setShowOtpModal] = useState(false);
@@ -26,10 +26,22 @@ export default function CreditCard() {
   };
 
   const features = [
-    "50+ Credit Cards From All Leading Providers",
-    "Compare Benefits of Various Credit Cards",
-    "Pick Best Credit Card Suiting Your Needs",
-    "Simplified Application Process",
+    "Low EMIs",
+    "Immediate Funds Availability",
+    "Fast and Easy Loan Processing",
+    "Speedy Approvals",
+    "Flexible Tenure",
+    "Simple and Hassle Free Documentation",
+    "Easy Balance Transferring",
+  ];
+
+  const features2 = [
+    "Lower interest rates",
+    "No end use restrictions",
+    "Longer loan tenure",
+    "Higher loan amount",
+    "Higher chances of loan approval ",
+    "Overdraft facility",
   ];
 
   return (
@@ -48,12 +60,18 @@ export default function CreditCard() {
         >
           <Image src="/logo.png" alt="logo" width={75} height={32} />
         </Link>
-        <div className="max-w-[390px] mx-auto">
+        <div className="max-w-[480px] mx-auto">
           <div className="mb-4">
-            <h1 className="text-[24px] font-bold text-green-800 py-[20px]">
-              Credit Card for everyone!
+            <h1 className="text-[24px] font-bold text-green-800 pt-[20px] pb-3">
+              Take Loan against Property (LAP)
             </h1>
-            <div className="space-y-[30px]">
+            <p className="text-[14px] font-[400] text-gray-700">
+              Fulfill your financial needs by getting a loan from the bank
+              against the mortgage of your property.
+              <br />
+              Available for salaried and self employed profile
+            </p>
+            <div className="space-y-[30px] mt-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <div className="w-[24px] h-[24px] min-w-[24px] min-h-[24px] rounded-full bg-white/40 flex items-center justify-center">
@@ -68,14 +86,6 @@ export default function CreditCard() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="relative flex items-center justify-center mt-4">
-            <Image
-              src="/assets/cards.png"
-              alt="Credit Cards Stack"
-              width={310}
-              height={310}
-            />
           </div>
         </div>
       </div>
@@ -94,43 +104,26 @@ export default function CreditCard() {
           <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>
-                {/* Search Bar */}
-                <div className="relative ">
-                  <input
-                    type="text"
-                    placeholder="Search Credit Card"
-                    className="w-full px-[15px] md:py-[12px] py-[8px] pe-12 border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500"
-                  />
-                  <BsSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                </div>
-
                 {/* Main Content */}
                 <div className="mt-[15px]">
-                  <h2 className="text-[20px] text-greenish">
-                    <span className="font-bold">CARD SAHI,</span>
-                    <span className="font-[500]"> MILEGA YAHIN!</span>
+                  <h2 className="text-[20px] text-greenish font-bold">
+                    Loan Against Property
                   </h2>
                   <div className="w-[50px] h-[2px] flex bg-green-500 mt-1"></div>
-                  <p className="text-gray-600 text-[14px] font-[600] mb-[10px] mt-[12px]">
-                    Get best Credit Cards for all your needs
-                  </p>
-
                   {/* Features */}
-                  <div className="mb-[25px]">
-                    <div className="flex items-center gap-2 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]">
-                      <BsCheckCircle
-                        size={16}
-                        className="min-w-[16px] text-green-600"
-                      />
-                      <span>Pre-Approved Offers</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-[12px] font-[500] text-gray-600 md:py-[10px] py-[5px]">
-                      <BsCheckCircle
-                        size={16}
-                        className="min-w-[16px] text-green-600"
-                      />
-                      <span>Lifetime Free Cards</span>
-                    </div>
+                  <div className="space-y-[16px] mb-[25px] mt-5">
+                    {features2.map((feature2, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 text-[14px] font-[500] text-gray-600"
+                      >
+                        <BsCheckCircle
+                          size={16}
+                          className="min-w-[16px] text-green-600"
+                        />
+                        <span>{feature2}</span>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Mobile Number Input */}
