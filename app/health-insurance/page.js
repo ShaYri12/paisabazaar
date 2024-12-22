@@ -8,6 +8,7 @@ import AgeStep from "./AgeStep";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { IoChevronBack } from "react-icons/io5";
 import CityStep from "./CityStep";
+import SaveProgressStep from "./SaveProgressStep";
 
 export default function InsurancePlan() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -192,6 +193,10 @@ export default function InsurancePlan() {
         )}
 
         {currentStep === 3 && <CityStep handleContinue={handleContinue} />}
+
+        {currentStep === 4 && (
+          <SaveProgressStep handleContinue={handleContinue} />
+        )}
       </div>
     </div>
   );
