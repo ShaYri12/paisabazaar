@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { IoChevronBack } from "react-icons/io5";
 
-export default function MedicalHistory({ handleViewPlan }) {
+export default function MedicalHistory({ handleViewPlan, handleBack }) {
   const [selectedConditions, setSelectedConditions] = useState([]);
   const [whatsappUpdates, setWhatsappUpdates] = useState(false);
 
@@ -97,12 +98,20 @@ export default function MedicalHistory({ handleViewPlan }) {
         </div>
 
         {/* View Plans Button */}
-        <button
-          onClick={handleViewPlan}
-          className="flex items-center justify-center shadow-lg mt-8 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
-        >
-          View plans
-        </button>
+        <div className="flex gap-2 justify-center mt-8">
+          <button
+            onClick={handleBack}
+            className="md:hidden w-[48px] min-w-[48px] h-[48px] min-h-[48px] flex items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg border"
+          >
+            <IoChevronBack className="w-6 h-6 text-greenish" />
+          </button>
+          <button
+            onClick={handleViewPlan}
+            className="flex items-center justify-center shadow-lg gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors block"
+          >
+            View plans
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoChevronDown } from "react-icons/io5";
+import { IoChevronBack, IoChevronDown } from "react-icons/io5";
 
-export default function AgeStep({ members, handleContinue }) {
+export default function AgeStep({ members, handleContinue, handleBack }) {
   return (
     <div className="w-full">
       <h1 className="text-[32px] font-[500] text-gray-900 mb-[24px] text-center">
@@ -49,12 +49,20 @@ export default function AgeStep({ members, handleContinue }) {
         </div>
 
         {/* Continue Button */}
-        <button
-          onClick={handleContinue}
-          className="flex items-center justify-center shadow-lg mt-10 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
-        >
-          Continue <IoIosArrowForward />
-        </button>
+        <div className="flex gap-2 justify-center mt-8">
+          <button
+            onClick={handleBack}
+            className="md:hidden w-[48px] min-w-[48px] h-[48px] min-h-[48px] flex items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg border"
+          >
+            <IoChevronBack className="w-6 h-6 text-greenish" />
+          </button>
+          <button
+            onClick={handleContinue}
+            className="flex items-center justify-center shadow-lg gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors block"
+          >
+            Continue <IoIosArrowForward />
+          </button>
+        </div>
       </div>
     </div>
   );

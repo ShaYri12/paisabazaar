@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoChevronDown, IoCheckmark } from "react-icons/io5";
+import { IoChevronDown, IoCheckmark, IoChevronBack } from "react-icons/io5";
 
-export default function SaveProgressForm({ handleContinue }) {
+export default function SaveProgressForm({ handleContinue, handleBack }) {
   const [formData, setFormData] = useState({
     fullName: "",
     countryCode: "+33",
@@ -160,12 +160,20 @@ export default function SaveProgressForm({ handleContinue }) {
           </div>
 
           {/* Continue Button */}
-          <button
-            onClick={handleContinue}
-            className="flex items-center justify-center shadow-lg mt-8 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
-          >
-            Continue <IoIosArrowForward />
-          </button>
+          <div className="flex gap-2 justify-center mt-8">
+            <button
+              onClick={handleBack}
+              className="md:hidden w-[48px] min-w-[48px] h-[48px] min-h-[48px] flex items-center justify-center rounded-full hover:bg-greenish/[3%] transition-colors shadow-lg border"
+            >
+              <IoChevronBack className="w-6 h-6 text-greenish" />
+            </button>
+            <button
+              onClick={handleContinue}
+              className="flex items-center justify-center shadow-lg gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors block"
+            >
+              Continue <IoIosArrowForward />
+            </button>
+          </div>
         </form>
       </div>
     </div>
