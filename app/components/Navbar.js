@@ -80,7 +80,7 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search"
-                className="sm:block hidden md:w-[270px] w-[180px] md:h-10 h-[32px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm"
+                className="sm:block hidden md:w-[270px] w-[180px] md:h-10 h-[32px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
               />
               <button className="rounded-lg bg-greenish/10 md:px-[24px] px-[20px] py-2 py-1 md:text-base text-[14px] text-greenish hover:bg-greenish/[15%] transition-colors">
                 Login
@@ -145,7 +145,7 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search"
-              className="sm:hidden w-full md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2"
+              className="sm:hidden w-full md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2 focus:outline-none focus:ring-1 focus:ring-green-500"
             />
             {Object.entries(allProductsMenu).map(([category, items]) => (
               <div
