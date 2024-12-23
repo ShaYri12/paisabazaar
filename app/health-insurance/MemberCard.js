@@ -14,7 +14,7 @@ export default function MemberCard({
   return (
     <div
       onClick={onToggle}
-      className={`relative cursor-pointer px-2 md:px-4 py-2 md:py-3 md:mb-2 rounded-lg border-2 text-left w-full transition-all ${
+      className={`relative cursor-pointer px-2 md:px-4 py-1 md:py-3 md:mb-2 rounded-lg border-2 text-left w-full transition-all ${
         isSelected
           ? "border-greenish bg-white hover:border-emerald-600"
           : "border-gray-200 bg-white hover:border-gray-300"

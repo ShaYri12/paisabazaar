@@ -7,8 +7,9 @@ import { CiMenuFries } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const allProductsMenu = {
-  "Credit Card": [
-    { name: "Credit Card", href: "/credit-card" },
+  "Credit Cards": [
+    { name: "Credit Cards", href: "/credit-cards" },
+    { name: "CC (Cash Credit)", href: "/cc" },
   ],
   "SME & Working Capital Loans": [
     { name: "OD (Overdraft)", href: "/od" },
@@ -122,7 +123,7 @@ export default function Navbar() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="text-gray-600 text-sm tracking-tight"
+                          className="text-gray-600 text-sm hover:border-b border-black transition duration-300 tracking-tight"
                         >
                           {item.name}
                         </Link>
@@ -148,25 +149,24 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search"
-              className="sm:hidden w-full mb-4 md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2 focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="sm:hidden w-full md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2 focus:outline-none focus:ring-1 focus:ring-green-500"
             />
-
             {Object.entries(allProductsMenu).map(([category, items]) => (
               <div
                 key={category}
-                className="py-2"
+                className="border-b border-gray-200 py-4 space-y-2"
               >
                 <button className="flex items-center justify-between w-full">
-                  {/* <span className="text-[#5AA74D] font-semibold text-sm">
+                  <span className="text-[#5AA74D] font-semibold text-sm">
                     {category}
-                  </span> */}
+                  </span>
                 </button>
                 <ul className="space-y-2">
                   {items.map((item) => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="block text-sm text-gray-600 hover:text-greenish"
+                        className="block px-4 text-sm text-gray-600 hover:text-greenish"
                       >
                         {item.name}
                       </Link>

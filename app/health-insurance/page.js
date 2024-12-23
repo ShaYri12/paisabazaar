@@ -141,7 +141,7 @@ export default function InsurancePlan() {
         <div className="relative lg:w-[57%] md:w-[53%]  bg-white overflow-y-auto md:h-screen py-8  px-4 sm:px-6 lg:px-8 flex items-center justify-center w-full">
           {/* <ProgressBar progress={(currentStep - 1) * 25} /> */}
 
-          <div className="max-w-4xl mx-auto mt-[60px] w-full xl:mt-10 md:mt-[100px]">
+          <div className="max-w-4xl mx-auto mt-[40px] w-full xl:mt-10 md:mt-[100px]">
             {/* Back Button */}
             {currentStep > 1 && (
               <button
@@ -154,7 +154,7 @@ export default function InsurancePlan() {
             {currentStep === 1 && (
               <>
                 <div className="text-center">
-                  <h1 className="xl:text-[32px] md:text-[28px] text-[24px] font-[600] text-gray-900 mb-[24px] text-center">
+                  <h1 className="xl:text-[32px] md:text-[28px] text-[24px] font-[600] text-gray-900 sm:mb-[12px] md:mb-[24px] text-center">
                     Find top plans for you with up to{" "}
                     <span className="text-greenish font-bold">25% discount</span>
                     <span className="text-[20px] text-gray-700 align-top">
@@ -185,11 +185,11 @@ export default function InsurancePlan() {
                 </div> */}
 
                 <div>
-                  <h2 className="text-base font-bold text-gray-700 mb-[12px] mt-[24px] text-center">
+                  <h2 className="text-base font-bold text-gray-700 mb-[8px] md:mb-[12px] mt-[10px] md:mt-[24px] text-center">
                     Select members you want to insure
                   </h2>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                     {initialMembers.map((member) => (
                       <MemberCard
                         key={member.id}
@@ -217,7 +217,7 @@ export default function InsurancePlan() {
 
                   <button
                     onClick={() => setShowMore(!showMore)}
-                    className="mt-6 text-greenish font-medium flex items-center justify-center gap-2 mx-auto"
+                    className="mt-3 md:mt-6 text-greenish font-medium flex items-center justify-center gap-2 mx-auto"
                   >
                     {showMore ? "Show less members" : "More members"}
                     <IoIosArrowDown
@@ -229,7 +229,7 @@ export default function InsurancePlan() {
 
                 <button
                   onClick={handleContinue}
-                  className="flex items-center justify-center shadow-lg mt-8 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
+                  className="flex items-center justify-center shadow-lg mt-3 md:mt-8 gap-1 w-full sm:w-[320px] px-8 py-3 bg-greenish text-white rounded-lg font-[600] hover:bg-green-600 transition-colors mx-auto block"
                 >
                   Continue <IoIosArrowForward />
                 </button>
