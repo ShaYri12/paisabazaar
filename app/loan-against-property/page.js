@@ -62,7 +62,7 @@ export default function CreditCard() {
         </Link>
         <div className="max-w-[480px] mx-auto">
           <div className="mb-4">
-            <h1 className="text-[24px] font-bold text-green-800 pt-[20px] pb-3">
+            <h1 className="text-[24px] font-bold text-green-800 md:pt-[20px] pb-3">
               Take Loan against Property (LAP)
             </h1>
             <p className="text-[14px] font-[400] text-gray-700">
@@ -100,12 +100,12 @@ export default function CreditCard() {
             <Image src="/logo.png" alt="logo" width={75} height={32} />
           </Link>
         </div>
-        <div className="md:p-12 p-5">
+        <div className="md:p-12 px-5 pb-5">
           <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>
                 {/* Main Content */}
-                <div className="mt-[15px]">
+                <div className="md:mt-[15px]">
                   <h2 className="text-[20px] text-greenish font-bold">
                     Loan Against Property
                   </h2>

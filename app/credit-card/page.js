@@ -35,7 +35,7 @@ export default function CreditCard() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="flex md:flex-row flex-col md:h-screen overflow-y-auto">
         {/* Left Section */}
         <div
@@ -45,12 +45,12 @@ export default function CreditCard() {
               "linear-gradient(180deg,rgb(222, 254, 202), rgba(243, 244, 255, 0))",
           }}
         >
-          {/* <Link
+          <Link
             href="/"
             className="flex-shrink-0 flex md:w-[75px] w-[70px] items-center ms-[-9px] my-[10px]"
           >
             <Image src="/logo.png" alt="logo" width={75} height={32} />
-          </Link> */}
+          </Link>
           <div className="max-w-[390px] mx-auto">
             <div className="mb-4">
               <h1 className="text-[24px] font-bold text-green-800 py-[20px]">
@@ -98,7 +98,7 @@ export default function CreditCard() {
               {!isVerified ? (
                 <>
                   {/* Main Content */}
-                  <div className="mt-[8px] sm:mt-[15px]">
+                  <div className="mt-[0px] sm:mt-[15px]">
                     <h2 className="text-[20px] text-greenish">
                       <span className="font-bold">CARD SAHI,</span>
                       <span className="font-[500]"> MILEGA YAHIN!</span>

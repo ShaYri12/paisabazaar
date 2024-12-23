@@ -80,12 +80,12 @@ export default function BusinessLoan() {
             <Image src="/logo.png" alt="logo" width={75} height={32} />
           </Link>
         </div>
-        <div className="md:p-12 p-5">
+        <div className="md:p-12 px-5 pb-5">
           <div className="max-w-[480px] mx-auto">
             {!isVerified ? (
               <>
                 {/* Main Content */}
-                <div className="mt-[15px]">
+                <div className="mt-0 md:mt-[15px]">
                   <h2 className="text-[20px] text-greenish mb-[8px]">
                     <span className="font-[500]">Unlock Best</span>{" "}
                     <span className="font-bold">Business Loan</span>{" "}
