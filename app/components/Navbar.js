@@ -7,6 +7,9 @@ import { CiMenuFries } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const allProductsMenu = {
+  "Credit Card": [
+    { name: "Credit Card", href: "/credit-card" },
+  ],
   "SME & Working Capital Loans": [
     { name: "OD (Overdraft)", href: "/od" },
     { name: "CC (Cash Credit)", href: "/cc" },
@@ -145,24 +148,25 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search"
-              className="sm:hidden w-full md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2 focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="sm:hidden w-full mb-4 md:h-10 h-[36px] border border-[#ccc] px-5 rounded-[40px] outline-none text-sm mt-2 focus:outline-none focus:ring-1 focus:ring-green-500"
             />
+
             {Object.entries(allProductsMenu).map(([category, items]) => (
               <div
                 key={category}
-                className="border-b border-gray-200 py-4 space-y-2"
+                className="py-2"
               >
                 <button className="flex items-center justify-between w-full">
-                  <span className="text-[#5AA74D] font-semibold text-sm">
+                  {/* <span className="text-[#5AA74D] font-semibold text-sm">
                     {category}
-                  </span>
+                  </span> */}
                 </button>
                 <ul className="space-y-2">
                   {items.map((item) => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="block px-4 text-sm text-gray-600 hover:text-greenish"
+                        className="block text-sm text-gray-600 hover:text-greenish"
                       >
                         {item.name}
                       </Link>

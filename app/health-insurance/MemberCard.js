@@ -14,7 +14,7 @@ export default function MemberCard({
   return (
     <div
       onClick={onToggle}
-      className={`relative cursor-pointer p-5 rounded-lg border-2 text-left w-full transition-all ${
+      className={`relative cursor-pointer px-2 md:px-4 py-2 md:py-3 md:mb-2 rounded-lg border-2 text-left w-full transition-all ${
         isSelected
           ? "border-greenish bg-white hover:border-emerald-600"
           : "border-gray-200 bg-white hover:border-gray-300"
@@ -22,9 +22,9 @@ export default function MemberCard({
       aria-pressed={isSelected}
     >
       <div className="flex items-center gap-3">
-        <div className="w-[50px] h-[50px] rounded-full bg-gray-100 flex items-center justify-center">
+        <div className="w-[40px] h-[40px] rounded-full bg-gray-100 flex items-center justify-center">
           <Icon
-            className="w-[30px] h-[30px] text-gray-600"
+            className="w-[25px] h-[25px] text-gray-600"
             aria-hidden="true"
           />
         </div>

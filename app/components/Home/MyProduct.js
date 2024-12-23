@@ -90,13 +90,23 @@ const products = [
   },
   {
     id: 9,
-    title: "Investments",
+    title: "Mutual Funds",
     description: "Invest & secure your future",
     buttonText: "Starting from ₹499/month*",
     imageSrc: "/assets/investment-plans.png",
     imageAlt: "life-insurance",
     link: "/credit-card",
   },
+  {
+    id: 10,
+    title: "Fixed Deposit",
+    description: "Invest & secure your future",
+    buttonText: "Starting from ₹499/month*",
+    imageSrc: "/assets/investment-plans.png",
+    imageAlt: "life-insurance",
+    link: "/credit-card",
+  },
+ 
 ];
 
 const MyProduct = () => {
