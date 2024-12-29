@@ -1,46 +1,71 @@
-import Card from "../Card";
+import React from "react";
+import CardWithDetails from "../CardWithDetails";
 
-export default function GeneralInsurance() {
-  const carLoans = [
-    {
-      title: "Car Insurance",
-      icon: "/assets/old-car-loan.png",
-    },
-    {
-      title: "Home Insurance",
-      icon: "/assets/home-loan.png",
-    },
-    {
-      title: "Fire Insurance",
-      icon: "/assets/fire-insurance.png",
-    },
-    {
-      title: "Travel Insurance",
-      icon: "/assets/travel-insurance.png",
-    },
-    {
-      title: "Building Insurance",
-      icon: "/assets/building-insurance.png",
-    },
-    {
-      title: "Infrastructure Insurance",
-      icon: "/assets/infrastructure-insurance.png",
-    },
-  ];
+const insuranceData = [
+  {
+    id: 1,
+    title: "Car Insurance",
+    description:
+      "From 35+ options, choose a card matching your lifestyle & needs",
+    buttonText: "Get Best Offers",
+    imageSrc: "/assets/old-car-loan.png",
+    imageAlt: "old-car-loan",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Home Insurance",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/home-loan.png",
+    imageAlt: "home-loan",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Fire Insurance",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/fire-insurance.png",
+    imageAlt: "fire-insurance",
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "Travel Insurance",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/travel-insurance.png",
+    imageAlt: "travel-insurance",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "Building Insurance",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/building-insurance.png",
+    imageAlt: "building-insurance",
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "Infrastructure Insurance",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/infrastructure-insurance.png",
+    imageAlt: "infrastructure-insurance",
+    link: "#",
+  },
+];
 
-  return (
-    <main className="max-w-[1200px] mx-auto w-full px-[15px] py-[20px]">
-      <div className="flex items-center gap-2 mb-[16px]">
-        <h2 className="text-greenish text-[14px] font-bold uppercase">
-          General Insurance{" "}
-        </h2>
-        <div className="w-[128px] h-[1.5px] bg-greenish"></div>
-      </div>
-      <div className="grid grid-cols-3 lg:gap-[30px] gap-[8px]">
-        {carLoans.map((loan, loanIndex) => (
-          <Card key={loanIndex} title={loan.title} icon={loan.icon} />
-        ))}
-      </div>
-    </main>
-  );
-}
+const GeneralInsurance = () => {
+  return <CardWithDetails title={"General Insurance"} data={insuranceData} />;
+};
+
+export default GeneralInsurance;

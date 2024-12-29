@@ -1,40 +1,71 @@
-import Card from "../Card";
+import React from "react";
+import CardWithDetails from "../CardWithDetails";
 
-export default function LifeInsurance() {
-  const carLoans = [
-    { title: "Retirement & Pension Plans", icon: "/assets/pension-plans.png" },
-    {
-      title: "Guaranteed Income & Saving Plans",
-      icon: "/assets/saving-plans.png",
-    },
-    {
-      title: "Investment Plans (Endowment Plans)",
-      icon: "/assets/investment-plans.png",
-    },
-    {
-      title: "ULIP (Unit-Linked Insurance Plans)",
-      icon: "/assets/ulip.png",
-    },
-    {
-      title: "Child Education & Marriage Plans",
-      icon: "/assets/education-plans.png",
-    },
-    { title: "Term Life Insurance", icon: "/assets/term-life-insurance.png" },
-  ];
+const insuranceData = [
+  {
+    id: 1,
+    title: "Retirement & Pension Plans",
+    description:
+      "From 35+ options, choose a card matching your lifestyle & needs",
+    buttonText: "Get Best Offers",
+    imageSrc: "/assets/pension-plans.png",
+    imageAlt: "pension-plans",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Guaranteed Income & Saving Plans",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/saving-plans.png",
+    imageAlt: "saving-plans",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Investment Plans (Endowment Plans)",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/investment-plans.png",
+    imageAlt: "investment-plans",
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "ULIP (Unit-Linked Insurance Plans)",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/ulip.png",
+    imageAlt: "ulip",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "Child Education & Marriage Plans",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/education-plans.png",
+    imageAlt: "education-plans",
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "Term Life Insurance",
+    description:
+      "Select the best offer curated just for you from a wide choice of Banks & NBFC's",
+    buttonText: "Check Eligibility",
+    imageSrc: "/assets/term-life-insurance.png",
+    imageAlt: "term-life-insurance",
+    link: "#",
+  },
+];
 
-  return (
-    <main className="max-w-[1200px] mx-auto w-full px-[15px] py-[20px]">
-      <div className="flex items-center gap-2 mb-[16px]">
-        <h2 className="text-greenish text-[14px] font-bold uppercase">
-          Life Insurance{" "}
-        </h2>
-        <div className="lg:w-[128px] w-[20px] h-[1.5px] bg-greenish"></div>
-      </div>
-      <div className="grid grid-cols-3 lg:gap-[30px] gap-[8px]">
-        {carLoans.map((loan, loanIndex) => (
-          <Card key={loanIndex} title={loan.title} icon={loan.icon} />
-        ))}
-      </div>
-    </main>
-  );
-}
+const LifeInsurance = () => {
+  return <CardWithDetails title={"Life Insurance"} data={insuranceData} />;
+};
+
+export default LifeInsurance;

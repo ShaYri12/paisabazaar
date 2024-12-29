@@ -4,12 +4,14 @@ import Footer from "./components/Footer";
 import Partners from "./components/Home/Partners";
 import MeriMudraWorks from "./components/Home/MeriMudraWorks";
 import MyProduct from "./components/Home/MyProduct";
-import LoanCategories from "./components/Home/LoanCategories";
 import CarLoans from "./components/Home/CarLoans";
 import Investments from "./components/Home/Investments";
 import LifeInsurance from "./components/Home/LifeInsurance";
 import HealthInsurance from "./components/Home/HealthInsurance";
 import GeneralInsurance from "./components/Home/GeneralInsurance";
+import WorkingCaptialLoans from "./components/Home/WorkingCaptialLoans";
+import UnsecuredLoans from "./components/Home/UnsecuredLoans";
+import SecuredLoans from "./components/Home/SecuredLoans";
 
 export default function Home() {
   return (
@@ -17,7 +19,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MyProduct />
-      <LoanCategories />
+      <WorkingCaptialLoans />
+      <UnsecuredLoans />
+      <SecuredLoans />
       <CarLoans />
       <Investments />
       <LifeInsurance />

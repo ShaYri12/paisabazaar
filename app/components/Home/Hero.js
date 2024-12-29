@@ -87,6 +87,7 @@ export default function Hero() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    arrows: false,
     beforeChange: (current, next) => setCurrentSlide(next),
     customPaging: (i) => (
       <div
@@ -98,48 +99,52 @@ export default function Hero() {
   };
 
   return (
-    <div
-      className="relative lg:h-[460px] pt-[80px] lg:pt-[100px] mb-[20px] border-b-[3px] border-[#e8eef8] flex items-center justify-center"
-      style={{ background: "linear-gradient(180deg, #fff 0, #f3f7ff 100%)" }}
-    >
-      <Slider
-        {...settings}
-        className="w-full h-full flex items-center justify-center"
-      >
-        {sliderData.map((slide, index) => (
-          <div
-            key={index}
-            className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 lg:py-0 py-4 h-full w-full flex items-center justify-center"
-          >
-            <div className="grid grid-cols-12 lg:gap-[50px] gap-4 h-full w-full">
-              <div className="col-span-5 flex items-center justify-center">
-                <div className="relative lg:h-[320px] w-full">
-                  <img
-                    src={slide.image}
-                    alt="Credit Score Illustration"
-                    priority
-                  />
+    <div className="relative lg:h-[460px] pt-[80px] lg:pt-[100px] mb-[20px] pb-[20px] border-b-[3px] border-[#e8eef8] flex items-center justify-center">
+      <img
+        src="/assets/hero-bg.png"
+        alt="background-img"
+        className="h-[83%] w-full object-cover absolute left-0"
+      />
+      <div className="max-w-[1200px] mx-auto w-full px-[15px] rounded-lg bg-white">
+        <Slider
+          {...settings}
+          className="w-full h-full flex items-center justify-center bg-white rounded-lg shadow-lg p-[15px]"
+        >
+          {sliderData.map((slide, index) => (
+            <div
+              key={index}
+              className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 lg:py-0 py-4 h-full w-full flex items-center justify-center"
+            >
+              <div className="grid grid-cols-12 lg:gap-[50px] gap-4 h-full w-full">
+                <div className="col-span-5 flex items-center justify-center">
+                  <div className="relative lg:h-[320px] w-full">
+                    <img
+                      src={slide.image}
+                      alt="Credit Score Illustration"
+                      priority
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="col-span-7 flex items-center justify-center lg:justify-start">
-                <div className="text-left">
-                  {slide.title}
-                  {slide.description}
-                  <div className="">
-                    <a
-                      href="#"
-                      className="inline-flex items-center justify-center gap-1 lg:gap-2 ps-[10px] lg:ps-[32px] lg:pe-[28px] pe-[10px] py-[4px] lg:py-[18px] text-[11px] sm:text-[12px] lg:text-base font-[600] rounded-[8px] text-white bg-greenish hover:bg-green-600"
-                    >
-                      {slide.cta}
-                      <IoIosArrowForward className="text-white" />
-                    </a>
+                <div className="col-span-7 flex items-center justify-center lg:justify-start">
+                  <div className="text-left">
+                    {slide.title}
+                    {slide.description}
+                    <div className="">
+                      <a
+                        href="#"
+                        className="inline-flex items-center justify-center gap-1 lg:gap-2 ps-[10px] lg:ps-[32px] lg:pe-[28px] pe-[10px] py-[4px] lg:py-[18px] text-[11px] sm:text-[12px] lg:text-base font-[600] rounded-[8px] text-white bg-greenish hover:bg-green-600"
+                      >
+                        {slide.cta}
+                        <IoIosArrowForward className="text-white" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 }
