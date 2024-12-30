@@ -99,12 +99,12 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative lg:h-[460px] pt-[80px] lg:pt-[100px] mb-[20px] pb-[20px] border-b-[3px] border-[#e8eef8] flex items-center justify-center">
-      <img
+    <div className="relative lg:h-[460px] pt-[80px] lg:pt-[100px] mb-[20px] pb-[20px] border-b-[3px] border-transparent flex items-center justify-center">
+      {/*<img
         src="/assets/hero-bg.png"
         alt="background-img"
         className="h-[83%] w-full object-cover absolute left-0"
-      />
+      />*/}
       <div className="max-w-[1200px] mx-auto w-full px-[15px] rounded-lg bg-white">
         <Slider
           {...settings}
